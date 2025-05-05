@@ -7,7 +7,9 @@ export default function ServicesTitle() {
     <div className="relative py-9 overflow-hidden">
       {/* Background text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-        <span className="text-[12rem] font-bold text-gray-200">Services</span>
+        <span className="text-[12rem] font-bold text-gray-200 pt-10">
+          Services
+        </span>
       </div>
 
       {/* Actual title */}
@@ -17,10 +19,10 @@ export default function ServicesTitle() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-heading text-4xl font-bold">
+          <h2 className="font-heading text-4xl font-bold pt-16">
             <span className="text-[#ffd700]">What we Offer</span>
           </h2>
-          <div className="w-24 h-1 bg-[#ffd700] mx-auto mt-4"></div>
+          {/* <div className="w-24 h-1 bg-[#ffd700] mx-auto mt-4"></div> */}
         </motion.div>
       </div>
     </div>

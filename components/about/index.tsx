@@ -3,7 +3,7 @@ import AboutTitle from "./about-title";
 import PurposeSection from "./purpose-section";
 import MissionSection from "./mission-section";
 import FounderSection from "./founder-section";
-import Services from "../services";
+import Services from "../servicesHomePage";
 import ProductsSection from "./products-section";
 export default function AboutSection() {
   return (
@@ -12,9 +12,9 @@ export default function AboutSection() {
       <AboutTitle />
       <PurposeSection />
       <MissionSection />
+      <FounderSection />
       <Services />
       <ProductsSection />
-      <FounderSection />
     </section>
   );
 }

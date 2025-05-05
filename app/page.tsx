@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Hero from "@/components/HeroSection";
 import AboutSection from "@/components/about";
-import Services from "@/components/services";
+import Services from "@/components/servicesHomePage";
 
 export default function Home() {
   return (

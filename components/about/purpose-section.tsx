@@ -52,7 +52,7 @@ export default function PurposeSection() {
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
           {/* Left side - Big words */}
-          <div className="space-y-6 mx-34" ref={ref}>
+          <div className="space-y-6 mx-30" ref={ref}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={controls}
@@ -61,27 +61,17 @@ export default function PurposeSection() {
               }}
               className="text-5xl font-bold leading-tight text-white"
             >
-              Art. Culture.
-              <div className="relative inline-block">
-                <span className="relative z-10 text-white"> Technology</span>
-                <svg
-                  className="absolute -top-4 -left-8 w-[calc(100%+4rem)] h-[calc(100%+2rem)] z-0"
-                  viewBox="0 0 300 100"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <motion.path
-                    d="M30,50 C40,20 100,10 150,10 C200,10 260,20 270,50 C260,80 200,90 150,90 C100,90 40,80 30,50"
-                    fill="none"
-                    stroke="#10b981"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    initial="hidden"
-                    animate={controls}
-                    variants={circleVariants}
-                  />
-                </svg>
+              <div>
+                <p className="font-sans text-white text-5xl font-semibold mb-4">
+                  EXPERINCE THE POWER OF CREATIVE EXPRESSION
+                </p>
               </div>
-              <div>For The Environment.</div>
+              <div>
+                <p className="text-white text-sm font-semibold mb-4">
+                  Transforming Enviromental Stewardship Through Creative
+                  Experience
+                </p>
+              </div>
             </motion.div>
           </div>
 
@@ -99,21 +89,19 @@ export default function PurposeSection() {
             className=" p-8"
           >
             <p className="text-white mb-4">
-              MondeVert is a vibrant social enterprise headquartered in Kigali,
-              Rwanda that unites art, culture, and technology to influence
-              people to become environmentally conscious and provide sustainable
-              solutions.
+              At MondeVert, we make conservation engaging by blending art,
+              culture, and technology into immersive experiences. Founded by
+              visual storyteller Vanson Cyuzuzo Rutagengwa, we emerged from a
+              simple observation: traditional environmental education often
+              fails to create emotional connections that drive action.
             </p>
             <p className="text-white mb-4">
-              We're not your typical environmental organization - we're a
-              creative hub that makes conservation exciting and engaging through
-              interactive workshops, immersive experiences, and community
-              projects.
-            </p>
-            <p className="text-white">
-              Our purpose is simple but powerful: to help our audience and
-              customers understand and care about our environment in ways that
-              are fun, meaningful, and inspire action.
+              Our approach transforms how people engage with sustainability
+              through workshops, immersive experiences, and public art. From our
+              base in Kigali, we partner with businesses, schools, and
+              government agencies to create programs that address environmental
+              challenges while building lasting cultural connections.RetryClaude
+              can make mistakes. Please double-check responses.
             </p>
           </motion.div>
         </div>

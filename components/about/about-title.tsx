@@ -18,9 +18,9 @@ export default function AboutTitle() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-heading text-4xl font-bold">
-            Our <span className="text-[#e3c31e]">Story</span>
+            <span className="text-[#e3c31e]">Our Story</span>
           </h2>
-          <div className="w-24 h-1 bg-[#e3c31e] mx-auto mt-4"></div>
+          {/* <div className="w-24 h-1 bg-[#e3c31e] mx-auto mt-4"></div> */}
         </motion.div>
       </div>
     </div>

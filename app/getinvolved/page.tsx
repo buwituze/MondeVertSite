@@ -26,7 +26,7 @@ export default function GetInvolved() {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Join Us in Creating a Sustainable Future
                 </h1>
-                <p className="text-muted-foreground md:text-xl">
+                <p className="font-sans text-muted-foreground md:text-xl">
                   Your support powers our mission to unite art, culture, and
                   technology for environmental stewardship in Rwanda and beyond.
                   Together, we can inspire the next generation of changemakers.
@@ -62,7 +62,7 @@ export default function GetInvolved() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Ways to Get Involved
                 </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                <p className="font-sans max-w-[700px] text-muted-foreground md:text-xl">
                   Everyone has a role to play in environmental stewardship. Find
                   the way that aligns with your passion and skills.
                 </p>
@@ -80,7 +80,7 @@ export default function GetInvolved() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="font-sans text-muted-foreground">
                     Your financial contributions help fund our workshops,
                     immersive experiences, and other programs across Rwanda.
                   </p>
@@ -104,7 +104,7 @@ export default function GetInvolved() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="font-sans text-muted-foreground">
                     Join our team of dedicated artists, storytellers, and
                     environmentalists who contribute their talents to our
                     mission.
@@ -127,7 +127,7 @@ export default function GetInvolved() {
                   <CardDescription>Collaborate with us</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="font-sans text-muted-foreground">
                     Partner with MondeVert to boost our shared impact on
                     environmental education and sustainable practices.
                   </p>
@@ -151,7 +151,7 @@ export default function GetInvolved() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Make a Donation
                 </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                <p className="font-sans max-w-[700px] text-muted-foreground md:text-xl">
                   Your generosity fuels our creative approach to environmental
                   education. Every contribution helps us engage more Rwandans in
                   sustainability.
@@ -166,23 +166,23 @@ export default function GetInvolved() {
                 </TabsList>
                 <TabsContent value="one-time" className="space-y-4">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
-                    <Button variant="outline" className="h-20">
+                    <Button variant="outline" className="font-sans h-20">
                       $25
                     </Button>
-                    <Button variant="outline" className="h-20">
+                    <Button variant="outline" className="font-sans h-20">
                       $50
                     </Button>
-                    <Button variant="outline" className="h-20">
+                    <Button variant="outline" className="font-sans h-20">
                       $100
                     </Button>
-                    <Button variant="outline" className="h-20">
+                    <Button variant="outline" className="font-sans h-20">
                       $250
                     </Button>
                   </div>
                   <div className="space-y-2">
                     <label
                       htmlFor="custom-amount"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      className="font-sans text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
                       Custom Amount
                     </label>
@@ -242,20 +242,20 @@ export default function GetInvolved() {
                 <div className="grid gap-4 md:grid-cols-3">
                   <div className="rounded-lg border p-4">
                     <h4 className="font-bold">$25</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="font-sans text-sm text-muted-foreground">
                       Provides art supplies for an environmental workshop with 5
                       students
                     </p>
                   </div>
                   <div className="rounded-lg border p-4">
                     <h4 className="font-bold">$50</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="font-sans text-sm text-muted-foreground">
                       Funds a storytelling workshop for 10 community members
                     </p>
                   </div>
                   <div className="rounded-lg border p-4">
                     <h4 className="font-bold">$100</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="font-sans text-sm text-muted-foreground">
                       Supports the creation of a public environmental mural
                     </p>
                   </div>
@@ -279,7 +279,7 @@ export default function GetInvolved() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
                   Volunteer With Us
                 </h2>
-                <p className="text-muted-foreground md:text-xl">
+                <p className="font-sans text-muted-foreground md:text-xl">
                   Our volunteers are the creative force behind MondeVert. Join
                   our team and contribute your unique artistic skills and
                   environmental passion to our cause.
@@ -293,7 +293,7 @@ export default function GetInvolved() {
                         <span className="font-medium">
                           Workshop Facilitator
                         </span>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-sans text-sm text-muted-foreground">
                           Help lead our creative workshops on storytelling,
                           painting, or photography with an environmental focus.
                         </p>
@@ -305,7 +305,7 @@ export default function GetInvolved() {
                         <span className="font-medium">
                           Environmental Artist
                         </span>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-sans text-sm text-muted-foreground">
                           Create murals, paintings, or other visual art that
                           communicates environmental messages.
                         </p>
@@ -317,7 +317,7 @@ export default function GetInvolved() {
                         <span className="font-medium">
                           Digital Content Creator
                         </span>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-sans text-sm text-muted-foreground">
                           Help develop AR/VR experiences or other digital
                           content that educates about environmental issues.
                         </p>
@@ -329,7 +329,7 @@ export default function GetInvolved() {
                         <span className="font-medium">
                           Environmental Safari Guide
                         </span>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-sans text-sm text-muted-foreground">
                           Lead immersive experiences in Rwanda's natural
                           environments, combining education with visual
                           storytelling.
