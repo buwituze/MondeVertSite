@@ -27,7 +27,7 @@ const missions = [
 
 export default function MissionSection() {
   return (
-    <section className="w-full text-gray-800 relative bg-[#e3c31e]">
+    <section className="w-full text-gray-800 relative bg-[#00bf63]">
       <div className="container mx-auto px-4 py-16 relative">
         {/* Mission Header */}
         <motion.div
