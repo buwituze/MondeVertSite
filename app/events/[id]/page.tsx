@@ -20,6 +20,7 @@ function parseMarkdown(text: string) {
     </p>
   ));
 }
+
 interface EventDetailPageProps {
   params: { id: string };
 }
@@ -216,3 +217,5 @@ const EventDetailPage: FC<EventDetailPageProps> = async ({ params }) => {
     </div>
   );
 };
+
+export default EventDetailPage;
