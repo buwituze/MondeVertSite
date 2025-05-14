@@ -20,7 +20,7 @@ export default function ServicesTitle() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-heading text-4xl font-bold pt-16">
-            <span className="text-[#ffd700]">What we Offer</span>
+            <span className="text-[#e3c31e]">What we Offer</span>
           </h2>
           {/* <div className="w-24 h-1 bg-[#ffd700] mx-auto mt-4"></div> */}
         </motion.div>

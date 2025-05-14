@@ -31,7 +31,7 @@ export default function EnvironmentalArtExhibitions() {
                   <Palette className="h-6 w-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Gallery and Exhibition Spaces
+                  Environmental Exhibitions
                 </h3>
                 <p className="text-gray-600 mb-4">
                   MondeVert creates, selects, and manages artwork that raises
@@ -44,7 +44,7 @@ export default function EnvironmentalArtExhibitions() {
                   href="#"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
-                  Visit our galleries <ArrowRight className="ml-1 h-4 w-4" />
+                  Visit our gallery <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function EnvironmentalArtExhibitions() {
                   <Globe className="h-6 w-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Multi-Platform Art Distribution
+                  Gallery and Exhibition Spaces
                 </h3>
                 <p className="text-gray-600 mb-4">
                   Our environmental artwork is available through various

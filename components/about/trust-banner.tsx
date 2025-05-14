@@ -12,21 +12,30 @@ export default function TrustBanner() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Trusted by companies */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-[#85e41e]">Trusted By</h3>
+          <div className="space-y-0">
+            <h3 className="text-lg font-medium text-[#85e41e] mb-3">
+              Trusted By
+            </h3>
             <div className="grid grid-cols-5 gap-3">
-              {[1, 2, 3, 4, 5].map((i) => (
+              {[1, 2].map((i) => (
                 <div
                   key={i}
-                  className="grayscale hover:grayscale-0 transition-all duration-300"
+                  className=" hover:grayscale-0 transition-all duration-300"
                 >
                   <Image
-                    src={`/placeholder.svg?height=40&width=100`}
+                    src={`/images/ALU.png`}
                     alt={`Partner ${i}`}
                     width={100}
                     height={40}
                     className="object-contain"
                   />
+                  {/* <Image
+                    src={`/images/ALU.png`}
+                    alt={`Partner ${i}`}
+                    width={100}
+                    height={40}
+                    className="object-contain"
+                  /> */}
                 </div>
               ))}
             </div>

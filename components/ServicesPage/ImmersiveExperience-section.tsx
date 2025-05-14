@@ -85,8 +85,17 @@ export default function ImmersiveExperiencesSection() {
 
           <div className="mt-12 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-              <div className="bg-emerald-100 p-8 flex items-center justify-center">
+              {/* <div className="bg-emerald-100 p-8 flex items-center justify-center">
                 <Monitor className="h-16 w-16 text-emerald-600" />
+              </div> */}
+              <div>
+                <Image
+                  src="/images/arvr environment.jpeg"
+                  alt=""
+                  width={350}
+                  height={300}
+                  className="text-emerald-600"
+                />
               </div>
               <div className="md:col-span-2 p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">

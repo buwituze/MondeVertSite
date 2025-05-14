@@ -21,12 +21,12 @@ export default function GetInvolved() {
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="space-y-4">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-2 items-center mt-5">
+              <div className="mt-10 space-y-4 ml-10">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Join Us in Creating a Sustainable Future
                 </h1>
-                <p className="font-sans text-muted-foreground md:text-xl">
+                <p className="text-muted-foreground md:text-xl">
                   Your support powers our mission to unite art, culture, and
                   technology for environmental stewardship in Rwanda and beyond.
                   Together, we can inspire the next generation of changemakers.
@@ -37,7 +37,7 @@ export default function GetInvolved() {
                     size="lg"
                     className="bg-[#e3c31e] hover:bg-green-700"
                   >
-                    <Link href="#donate">Donate Now</Link>
+                    <Link href="#donate"> Donate Now</Link>
                   </Button>
                   <Button asChild variant="outline" size="lg">
                     <Link href="#volunteer">Volunteer</Link>
@@ -45,11 +45,11 @@ export default function GetInvolved() {
                 </div>
               </div>
               <Image
-                src="/placeholder.svg?height=600&width=800"
+                src="/images/Beyond-the-frame-event.jpg"
                 alt="Community members engaged in environmental art projects"
-                width={800}
+                width={500}
                 height={600}
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
+                className="h-80 mx-auto aspect-video overflow-hidden rounded-xl object-cover"
               />
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function GetInvolved() {
                       $100
                     </Button>
                     <Button variant="outline" className="font-sans h-20">
-                      $250
+                      $250+
                     </Button>
                   </div>
                   <div className="space-y-2">
@@ -254,7 +254,7 @@ export default function GetInvolved() {
                     </p>
                   </div>
                   <div className="rounded-lg border p-4">
-                    <h4 className="font-bold">$100</h4>
+                    <h4 className="font-bold">$100+</h4>
                     <p className="font-sans text-sm text-muted-foreground">
                       Supports the creation of a public environmental mural
                     </p>
@@ -268,18 +268,11 @@ export default function GetInvolved() {
         <section id="volunteer" className="w-full py-12 md:py-24">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <Image
-                src="/placeholder.svg?height=600&width=800"
-                alt="Volunteers creating environmental art"
-                width={800}
-                height={600}
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
-              />
-              <div className="space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              <div className="ml-20">
+                <h2 className="mb-4 text-3xl font-bold tracking-tighter sm:text-4xl">
                   Volunteer With Us
                 </h2>
-                <p className="font-sans text-muted-foreground md:text-xl">
+                <p className="mb-4  font-sans text-muted-foreground">
                   Our volunteers are the creative force behind MondeVert. Join
                   our team and contribute your unique artistic skills and
                   environmental passion to our cause.
@@ -338,6 +331,8 @@ export default function GetInvolved() {
                     </li>
                   </ul>
                 </div>
+              </div>
+              <div className="space-y-4">
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold">Volunteer Application</h3>
                   <form className="space-y-4">
@@ -432,20 +427,20 @@ export default function GetInvolved() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-2">
+            <div className="mx-auto grid max-w-5xl gap-13 py-12 lg:grid-cols-2">
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">
                   Partnership Opportunities
                 </h3>
                 <div className="space-y-4">
-                  <div className="rounded-lg border p-4">
+                  <div className="rounded-lg border bg-white p-4">
                     <h4 className="font-bold">Workshop & Event Sponsorships</h4>
                     <p className="text-sm text-muted-foreground">
                       Sponsor our interactive workshops, storytelling events, or
                       environmental safaris to reach engaged audiences.
                     </p>
                   </div>
-                  <div className="rounded-lg border p-4">
+                  <div className="rounded-lg bg-white border p-4">
                     <h4 className="font-bold">
                       Art & Technology Collaborations
                     </h4>
@@ -454,7 +449,7 @@ export default function GetInvolved() {
                       our innovative environmental education initiatives.
                     </p>
                   </div>
-                  <div className="rounded-lg border p-4">
+                  <div className="rounded-lg bg-white border p-4">
                     <h4 className="font-bold">
                       Corporate Environmental Training
                     </h4>
@@ -464,7 +459,7 @@ export default function GetInvolved() {
                       organization.
                     </p>
                   </div>
-                  <div className="rounded-lg border p-4">
+                  <div className="rounded-lg bg-white border p-4">
                     <h4 className="font-bold">Community Mural Projects</h4>
                     <p className="text-sm text-muted-foreground">
                       Sponsor public environmental art that engages communities
@@ -476,7 +471,7 @@ export default function GetInvolved() {
               </div>
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">Partner Inquiry Form</h3>
-                <form className="space-y-4">
+                <form className="space-y-4 bg-white p-10 rounded-lg">
                   <div className="space-y-2">
                     <label
                       htmlFor="org-name"

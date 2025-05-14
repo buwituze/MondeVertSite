@@ -15,4 +15,7 @@ export interface Event {
   registrationInfo: string;
   imageSrc: string;
   heroImageSrc: string;
+  eventGallery: string;
+  introSentence: string;
+  introDescription: string;
 }

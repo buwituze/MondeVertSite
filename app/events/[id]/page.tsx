@@ -5,6 +5,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarIcon, MapPinIcon, ClockIcon } from "lucide-react";
 
+// Helper function to parse markdown-like syntax
+function parseMarkdown(text: string) {
+  if (!text) return "";
+
+  // Handle bold text (**text**)
+  const boldParsed = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+  // Handle newlines (\n\n)
+  return boldParsed.split("\\n\\n").map((part, index) => (
+    <p key={index} className="font-sans leading-relaxed text-gray-700 mb-2">
+      <span dangerouslySetInnerHTML={{ __html: part }} />
+    </p>
+  ));
+}
+
 export default function EventDetailPage({
   params,
 }: {
@@ -28,7 +43,7 @@ export default function EventDetailPage({
           priority
         />
         <div className="absolute inset-0 bg-black/40 flex items-center">
-          <div className="container mx-auto px-4">
+          <div className="container w-200 mt-25 px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {event.title}
             </h1>
@@ -45,12 +60,24 @@ export default function EventDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Storyboard Image & Introduction - Takes up 2/3 of the width */}
             <div className="lg:col-span-2 space-y-8">
-              <p className=" font-sans leading-relaxed text-gray-700">
-                This is experiencing the world like never before.
-              </p>
+              <div className="space-y-2">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: event.introSentence.replace(
+                      /\*\*(.*?)\*\*/g,
+                      "<strong>$1</strong>"
+                    ),
+                  }}
+                  className="font-sans leading-relaxed text-gray-700"
+                />
+
+                <p className="font-sans leading-relaxed text-gray-700">
+                  {event.introDescription}
+                </p>
+              </div>
 
               {/* Storyboard Image */}
-              <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-120 w-full rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src={event.storyboardImageSrc || "/placeholder.svg"}
                   alt="Event Storyboard"
@@ -92,7 +119,7 @@ export default function EventDetailPage({
                 </div>
               </div>
 
-              <button className="font-sans mt-8 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-md transition-colors">
+              <button className="font-sans mt-8 w-full  bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium py-3 px-4 rounded-md transition-colors">
                 RSVP Now
               </button>
 
@@ -123,10 +150,14 @@ export default function EventDetailPage({
             </div>
 
             {/* About Content */}
-            <div className="space-y-4">
-              <p className="font-sans text-gray-700 leading-relaxed">
-                {event.aboutEvent}
-              </p>
+            <div className="space-y-4 flex flex-col gap-3">
+              <div>{parseMarkdown(event.aboutEvent)}</div>
+              <Link
+                href={event.eventGallery}
+                className="font-sans bg-[#e3c31e] w-34 text-white py-2 px-4 rounded-md hover:bg-yellow-300 font-medium"
+              >
+                Event Gallery
+              </Link>
             </div>
           </div>
         </div>
@@ -140,14 +171,33 @@ export default function EventDetailPage({
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {event.eventHighlights.map((highlight, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                <span className="font-sans inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">
-                  Highlight {index + 1}
-                </span>
-                <p className="font-sans text-gray-700">{highlight}</p>
-              </div>
-            ))}
+            {event.eventHighlights.map((highlight, index) => {
+              const parts = highlight.split("\\n\\n");
+              const title = parts[0];
+              const description = parts.length > 1 ? parts[1] : "";
+
+              return (
+                <div
+                  key={index}
+                  className="bg-gray-50 p-6 rounded-lg shadow-sm"
+                >
+                  <span className="font-sans inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">
+                    Highlight {index + 1}
+                  </span>
+                  <h3 className="font-medium text-gray-900 mb-2">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: title.replace(
+                          /\*\*(.*?)\*\*/g,
+                          "<strong>$1</strong>"
+                        ),
+                      }}
+                    />
+                  </h3>
+                  <p className="font-sans text-gray-700">{description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

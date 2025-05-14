@@ -6,8 +6,8 @@ export default function ServicesHero() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-          <div className="space-y-4">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-2 items-center mt-5">
+          <div className="mt-10 space-y-4 ml-10">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Creative Solutions for Environmental Stewardship
             </h1>
@@ -30,11 +30,11 @@ export default function ServicesHero() {
             </div>
           </div>
           <Image
-            src="/placeholder.svg?height=600&width=800"
+            src="/images/Beyond-the-frame-event.jpg"
             alt="Community members engaged in environmental art projects"
-            width={800}
+            width={500}
             height={600}
-            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
+            className="h-80 mx-auto aspect-video overflow-hidden rounded-xl object-cover"
           />
         </div>
       </div>

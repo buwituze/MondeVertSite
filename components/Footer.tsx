@@ -6,18 +6,27 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-12 bg-emerald-700 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="w-full  bg-[#00bf63] text-white">
+      <div className="absolute opacity-20" style={{ zIndex: 0 }}>
+        <Image
+          src="/images/footerpatterns.png"
+          alt="MondeVert Logo"
+          width={300}
+          height={200}
+          className="h-116"
+        />
+      </div>
+      <div className="container mx-auto py-12 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Logo and Description Column */}
           <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="mb-4">
+            <Link href="/" className="mb-3 bg-white mr-4 p-2 rounded-lg">
               <Image
-                src="/logo-green-flower.png"
+                src="/images/MondeVertFooterLogo-removebg-preview.png"
                 alt="MondeVert Logo"
-                width={140}
-                height={140}
-                className="mb-4"
+                width={400}
+                height={200}
+                className="h-22"
               />
             </Link>
             <p className="text-sm text-gray-300 mb-4 text-center md:text-left">
@@ -53,7 +62,7 @@ export default function Footer() {
           </div>
 
           {/* About Column */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start mt-3">
             <h3 className="font-bold text-lg mb-4">Explore</h3>
             <nav className="flex flex-col gap-2">
               <Link
@@ -73,13 +82,6 @@ export default function Footer() {
                 className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
               >
                 Services
-              </Link>
-
-              <Link
-                href="/programs"
-                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
-              >
-                Programs
               </Link>
               <Link
                 href="/art-gallery"
@@ -102,16 +104,41 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Resources Column */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg mb-4">Resources</h3>
-            <nav className="flex flex-col gap-2">
+          {/* Get Involved & Contact Column */}
+          <div className="flex flex-col items-center md:items-start  mt-3">
+            <h3 className="font-bold text-lg mb-4">Get Involved</h3>
+            <nav className="flex flex-col gap-2 mb-6">
               <Link
-                href="/tutorial"
+                href="/donate"
                 className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
               >
-                Tutorial
+                Donate
               </Link>
+              <Link
+                href="/volunteer"
+                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
+              >
+                Volunteer
+              </Link>
+              <Link
+                href="/partner"
+                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
+              >
+                Partner with us
+              </Link>
+              <Link
+                href="/partner"
+                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
+              >
+                Spread The Word
+              </Link>
+            </nav>
+          </div>
+
+          {/* Resources Column */}
+          <div className="flex flex-col items-center md:items-start  mt-3">
+            <h3 className="font-bold text-lg mb-4">Resources</h3>
+            <nav className="flex flex-col gap-2">
               <Link
                 href="/blog"
                 className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
@@ -133,30 +160,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Get Involved & Contact Column */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg mb-4">Get Involved</h3>
-            <nav className="flex flex-col gap-2 mb-6">
-              <Link
-                href="/donate"
-                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
-              >
-                Donate
-              </Link>
-              <Link
-                href="/volunteer"
-                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
-              >
-                Volunteer
-              </Link>
-              <Link
-                href="/partner"
-                className="text-sm text-gray-300 hover:text-[#e3c31e] transition-colors"
-              >
-                Partner with us
-              </Link>
-            </nav>
-
+          <div className="flex flex-col items-center md:items-start  mt-3">
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <div className="flex flex-col gap-2">
               <p className="text-sm text-gray-300">+250-783446127</p>
@@ -164,17 +168,25 @@ export default function Footer() {
                 mondevert.solutions@gmail.com
               </p>
             </div>
+            <h3 className="font-bold text-lg  mt-2 mb-1">Location</h3>
+            <div className="flex flex-col gap-2">
+              <p className="text-sm text-gray-300">Rwanda, Kigali</p>
+              <p className="text-sm text-gray-300">Kimironko, Bumbogo</p>
+              <Link href="#">
+                <p className="text-sm text-gray-300">View On Map</p>
+              </Link>
+            </div>
           </div>
         </div>
-
-        {/* Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center md:text-left">
+        <div className="border-t border-gray-300 mt-8 pt-8 text-center md:text-left">
           <p className="text-sm text-[#e3c31e]">
             © {new Date().getFullYear()} MondeVert Solutions. All rights
             reserved.
           </p>
         </div>
       </div>
+
+      {/* Copyright */}
     </footer>
   );
 }

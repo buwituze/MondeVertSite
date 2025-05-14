@@ -48,15 +48,111 @@ const socialLinks = [
 
 export default function FounderSection() {
   return (
-    <section className="w-full py-10 bg-emerald-700">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-10 bg-[#00bf63] relative overflow-hidden">
+      {/* Strategic Pattern Overlay */}
+      <div className="absolute inset-0 opacity-40">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            {/* Single dot pattern definition */}
+            <pattern
+              id="strategicDots"
+              x="0"
+              y="0"
+              width="24"
+              height="24"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="2" cy="2" r="2" fill="#B7410E" />
+            </pattern>
+
+            {/* Masks for strategic placement */}
+            <mask id="topLeftMask">
+              <rect x="0" y="0" width="40%" height="50%" fill="white" />
+            </mask>
+
+            <mask id="bottomRightMask">
+              <rect x="60%" y="50%" width="40%" height="50%" fill="white" />
+            </mask>
+
+            <mask id="diagonalMask">
+              <polygon
+                points="0,0 30,0 100%,70% 100%,100% 70%,100% 0,30%"
+                fill="white"
+              />
+            </mask>
+
+            <mask id="centerFadeMask">
+              <radialGradient
+                id="centerFade"
+                cx="50%"
+                cy="50%"
+                r="50%"
+                fx="50%"
+                fy="50%"
+              >
+                <stop offset="0%" stopColor="black" stopOpacity="1" />
+                <stop offset="70%" stopColor="white" stopOpacity="1" />
+              </radialGradient>
+              <rect width="100%" height="100%" fill="url(#centerFade)" />
+            </mask>
+          </defs>
+
+          {/* Strategic dot pattern placements */}
+
+          {/* Top left dense cluster */}
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="url(#strategicDots)"
+            mask="url(#topLeftMask)"
+            opacity="0.8"
+          />
+
+          {/* Bottom right cluster */}
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="url(#strategicDots)"
+            mask="url(#bottomRightMask)"
+            opacity="0.6"
+          />
+
+          {/* Diagonal strip across */}
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="url(#strategicDots)"
+            mask="url(#diagonalMask)"
+            opacity="0.4"
+          />
+
+          {/* Create empty space around the center (where the image will be) */}
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="url(#strategicDots)"
+            mask="url(#centerFadeMask)"
+            opacity="0.3"
+          />
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Founder description */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 pl-30"
+            className="space-y-6 pl-6 md:pl-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               Meet Our Visionalist
@@ -111,9 +207,12 @@ export default function FounderSection() {
             transition={{ duration: 0.8 }}
             className="relative flex items-center justify-center"
           >
+            {/* Custom radial gradient behind the image */}
+            <div className="absolute w-[350px] h-[470px] rounded-full bg-gradient-to-tr from-transparent via-[#ffd700]/30 to-[#ffd700]/20"></div>
+
             <div className="relative w-[300px] h-[420px]">
               {/* Outer thick gold layer - true pill/oval shape */}
-              <div className="absolute inset-0 rounded-full bg-[#00bf63]/20"></div>
+              <div className="absolute inset-0 rounded-full bg-[#ffd700]/20"></div>
 
               {/* Inner thin green layer - true pill/oval shape */}
               <div className="absolute inset-[12px] rounded-full bg-[#ffd700]/70"></div>

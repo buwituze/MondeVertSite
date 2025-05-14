@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Leaf, Paintbrush, Users, Building } from "lucide-react";
+import Image from "next/image";
 
 export default function CommunityLedInitiatives() {
   return (
@@ -18,8 +19,17 @@ export default function CommunityLedInitiatives() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 flex flex-col md:flex-row">
-              <div className="md:w-2/5 bg-emerald-100 flex items-center justify-center p-8">
+              {/* <div className="md:w-2/5 bg-emerald-100 flex items-center justify-center p-8">
                 <Paintbrush className="h-16 w-16 text-emerald-600" />
+              </div> */}
+              <div>
+                <Image
+                  src="/images/event.jpg"
+                  alt="Mural"
+                  width={250}
+                  height={400}
+                  className="h-73"
+                />
               </div>
               <div className="md:w-3/5 p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -36,9 +46,15 @@ export default function CommunityLedInitiatives() {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 flex flex-col md:flex-row">
-              <div className="md:w-2/5 bg-emerald-100 flex items-center justify-center p-8">
+              {/* <div className="md:w-2/5 bg-emerald-100 flex items-center justify-center p-8">
                 <Users className="h-16 w-16 text-emerald-600" />
-              </div>
+              </div> */}
+              <Image
+                src="/images/communityEngagement.png"
+                alt="Mural"
+                width={250}
+                height={500}
+              />
               <div className="md:w-3/5 p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   Community Empowerment

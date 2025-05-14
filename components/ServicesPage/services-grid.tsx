@@ -25,7 +25,7 @@ export default function ServicesGrid() {
         "We craft and use poetry, murals, and live performances to tell compelling environmental stories.",
       category: "Creative Education",
       icon: <Mic className="h-6 w-6 text-[#00bf63]" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/live perfomancecopy.jpg",
       color: "from-emerald-500/20 to-emerald-500/5",
     },
     {
@@ -35,7 +35,7 @@ export default function ServicesGrid() {
         "Blending traditional art with digital innovations, such as AR/VR, for immersive environmental education.",
       category: "Interactive Technology",
       icon: <Monitor className="h-6 w-6 text-[#00bf63]" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/arvr.jpg",
       color: "from-blue-500/20 to-blue-500/5",
     },
     {
@@ -55,7 +55,7 @@ export default function ServicesGrid() {
         "Guided explorations of Rwanda's natural landscapes combining adventure with education.",
       category: "Immersive Experiences",
       icon: <Camera className="h-6 w-6 text-[#00bf63]" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/ecosafari.jpg",
       color: "from-indigo-500/20 to-indigo-500/5",
     },
     {
@@ -65,7 +65,7 @@ export default function ServicesGrid() {
         "Empowering local communities through murals, street art, and sustainable innovation.",
       category: "Community Engagement",
       icon: <Paintbrush className="h-6 w-6 text-[#00bf63]" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/peacockmural.jpg",
       color: "from-rose-500/20 to-rose-500/5",
     },
     {
@@ -75,7 +75,7 @@ export default function ServicesGrid() {
         "Showcasing environmental-themed art through visual storytelling and interactive displays.",
       category: "Art & Education",
       icon: <ImageIcon className="h-6 w-6 text-[#00bf63]" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/exhibition.jpg",
       color: "from-purple-500/20 to-purple-500/5",
     },
   ];
