@@ -100,7 +100,7 @@ export default function Hero() {
               }`}
               style={{
                 backgroundImage:
-                  "linear-gradient(to right, #ffd700, #B7410E, #00bf63, #00bf63)",
+                  "linear-gradient(to right, #ffd700, #00bf63, #ffd700)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 transitionTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1)", // Sharp easing
@@ -357,7 +357,7 @@ export default function Hero() {
           display: inline-block;
           position: relative;
           min-width: 500px;
-          min-height: 1.4em;
+          min-height: 1.3em;
           color: #e3c31e;
           overflow: hidden;
         }

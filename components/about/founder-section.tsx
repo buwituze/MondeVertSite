@@ -48,7 +48,7 @@ const socialLinks = [
 
 export default function FounderSection() {
   return (
-    <section className="w-full py-10 bg-[#00bf63] relative overflow-hidden">
+    <section className="w-full py-10 bg-emerald-600 relative overflow-hidden">
       {/* Strategic Pattern Overlay */}
       <div className="absolute inset-0 opacity-40">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@ export default function FounderSection() {
               height="24"
               patternUnits="userSpaceOnUse"
             >
-              <circle cx="2" cy="2" r="2" fill="#B7410E" />
+              <circle cx="2" cy="2" r="2" fill="#00bf63" />
             </pattern>
 
             {/* Masks for strategic placement */}
@@ -208,11 +208,11 @@ export default function FounderSection() {
             className="relative flex items-center justify-center"
           >
             {/* Custom radial gradient behind the image */}
-            <div className="absolute w-[350px] h-[470px] rounded-full bg-gradient-to-tr from-transparent via-[#ffd700]/30 to-[#ffd700]/20"></div>
+            <div className="absolute w-[350px] h-[470px] rounded-full bg-gradient-to-tr from-transparent via-emerald-600/30 to-emerald-500/20"></div>
 
             <div className="relative w-[300px] h-[420px]">
               {/* Outer thick gold layer - true pill/oval shape */}
-              <div className="absolute inset-0 rounded-full bg-[#ffd700]/20"></div>
+              <div className="absolute inset-0 rounded-full bg-[#00bf63]/20"></div>
 
               {/* Inner thin green layer - true pill/oval shape */}
               <div className="absolute inset-[12px] rounded-full bg-[#ffd700]/70"></div>
