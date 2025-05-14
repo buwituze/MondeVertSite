@@ -21,14 +21,13 @@ function parseMarkdown(text: string) {
   ));
 }
 
-// Updated props type for Next.js 15
-interface PageProps {
+type PageProps = {
   params: {
     id: string;
   };
-}
+};
 
-const EventDetailPage = async ({ params }: PageProps) => {
+const EventDetailPage = ({ params }: PageProps) => {
   const event = getEventById(params.id);
 
   if (!event) {
