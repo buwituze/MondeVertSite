@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarIcon, MapPinIcon, ClockIcon } from "lucide-react";
+import { type FC } from "react";
 
 // Helper function to parse markdown-like syntax
 function parseMarkdown(text: string) {
@@ -19,12 +20,11 @@ function parseMarkdown(text: string) {
     </p>
   ));
 }
-
-export default function EventDetailPage({
-  params,
-}: {
+interface EventDetailPageProps {
   params: { id: string };
-}) {
+}
+
+const EventDetailPage: FC<EventDetailPageProps> = async ({ params }) => {
   const event = getEventById(params.id);
 
   if (!event) {
@@ -215,4 +215,4 @@ export default function EventDetailPage({
       </section>
     </div>
   );
-}
+};
