@@ -6,17 +6,22 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full  bg-[#00bf63] text-white">
-      <div className="absolute opacity-20" style={{ zIndex: 0 }}>
+    <footer className="w-full bg-emerald-600 text-white relative">
+      <div
+        className="absolute inset-0 w-full h-full overflow-hidden opacity-20"
+        style={{ zIndex: 0 }}
+      >
         <Image
           src="/images/footerpatterns.png"
-          alt="MondeVert Logo"
-          width={300}
+          alt="Background Pattern"
+          width={310}
           height={200}
-          className="h-116"
+          style={{ objectFit: "cover" }}
+          priority
         />
       </div>
-      <div className="container mx-auto py-15 px-4">
+
+      <div className="container mx-auto py-15 px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Logo and Description Column */}
           <div className="flex flex-col items-center md:items-start">
@@ -54,7 +59,7 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook
-                  className="w-6 h-6  text-[#e3c31e] hover:text-green-400 transition-colors"
+                  className="w-6 h-6 text-[#e3c31e] hover:text-green-400 transition-colors"
                   style={{ marginLeft: -7 }}
                 />
               </Link>
@@ -105,7 +110,7 @@ export default function Footer() {
           </div>
 
           {/* Get Involved & Contact Column */}
-          <div className="flex flex-col items-center md:items-start  mt-3">
+          <div className="flex flex-col items-center md:items-start mt-3">
             <h3 className="font-bold text-lg mb-4">Get Involved</h3>
             <nav className="flex flex-col gap-2 mb-6">
               <Link
@@ -136,7 +141,7 @@ export default function Footer() {
           </div>
 
           {/* Resources Column */}
-          <div className="flex flex-col items-center md:items-start  mt-3">
+          <div className="flex flex-col items-center md:items-start mt-3">
             <h3 className="font-bold text-lg mb-4">Resources</h3>
             <nav className="flex flex-col gap-2">
               <Link
@@ -160,7 +165,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="flex flex-col items-center md:items-start  mt-3">
+          <div className="flex flex-col items-center md:items-start mt-3">
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <div className="flex flex-col gap-2">
               <p className="text-sm text-gray-300">+250-783446127</p>
@@ -168,7 +173,7 @@ export default function Footer() {
                 mondevert.solutions@gmail.com
               </p>
             </div>
-            <h3 className="font-bold text-lg  mt-2 mb-1">Location</h3>
+            <h3 className="font-bold text-lg mt-2 mb-1">Location</h3>
             <div className="flex flex-col gap-2">
               <p className="text-sm text-gray-300">Rwanda, Kigali</p>
               <p className="text-sm text-gray-300">Kimironko, Bumbogo</p>
@@ -185,8 +190,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
-      {/* Copyright */}
     </footer>
   );
 }
