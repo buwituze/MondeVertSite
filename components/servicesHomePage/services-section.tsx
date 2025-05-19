@@ -73,9 +73,13 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-1">
           {/* Left column - Text content */}
           <div className="lg:col-span-6 pr-0 lg:pr-8 my-auto">
-            <h2 className="text-4xl font-bold text-gray-700 mb-6">
+            {/* <h2 className="font-subheading text-4xl font-bold text-gray-700 mb-6">
               We Offer Exclusive <br />
               Services For You
+            </h2> */}
+            <h2 className="font-subheading text-4xl font-bold text-gray-700 mb-6">
+              We Offer Creative Services <br />
+              For You and Your Business
             </h2>
             {/* <p className="text-gray-600 mb-8">
               MondeVert unites art, culture, and technology to foster
@@ -99,7 +103,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                 </div>
-                <p className="ml-3 text-gray-600">
+                <p className=" font-sans ml-3 text-gray-600">
                   Storytelling workshops that craft compelling environmental
                   narratives
                 </p>
@@ -118,7 +122,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                 </div>
-                <p className="ml-3 text-gray-600">
+                <p className="font-sans ml-3 text-gray-600">
                   Mural and canvas painting workshops for visual environmental
                   advocacy
                 </p>
@@ -137,7 +141,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                 </div>
-                <p className="ml-3 text-gray-600">
+                <p className=" font-sans ml-3 text-gray-600">
                   Immersive AR/VR experiences that educate on environmental
                   issues
                 </p>
@@ -156,7 +160,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                 </div>
-                <p className="ml-3 text-gray-600">
+                <p className="font-sans ml-3 text-gray-600">
                   Community empowerment through public art and sustainable
                   innovation
                 </p>
@@ -175,7 +179,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                 </div>
-                <p className="ml-3 text-gray-600">
+                <p className="ml-3 font-sans text-gray-600">
                   Corporate workshops that blend environmental awareness with
                   team activities
                 </p>
@@ -194,7 +198,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                 </div>
-                <p className="ml-3 text-gray-600">
+                <p className="ml-3 font-sans text-gray-600">
                   Guided nature photography adventures that connect participants
                   with landscapes
                 </p>
@@ -203,7 +207,7 @@ export default function ServicesSection() {
 
             <Link
               href="/services"
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium rounded-full hover:opacity-90 transition-colors"
+              className="font-sans inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium rounded-full hover:opacity-90 transition-colors"
             >
               View All Services <ChevronRight className="ml-2 h-4 w-4" />
             </Link>
@@ -223,22 +227,22 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  <h3 className="text-lg font-sans font-bold text-gray-800 mb-2">
                     {service.title}
                   </h3>
                   {/* Category Tag */}
-                  <div className="text-xs font-medium text-[#00bf63] mb-2">
+                  <div className="text-xs font-sans font-medium text-[#00bf63] mb-2">
                     {service.category}
                   </div>
                   {/* Description */}
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm font-sans text-gray-600 mb-4">
                     {service.description}
                   </p>
 
                   {/* Learn More Link */}
                   <Link
                     href={`/services/${service.id}`}
-                    className="inline-flex items-center text-sm font-medium text-[#00bf63]"
+                    className="inline-flex font-sans items-center text-sm font-medium text-[#00bf63]"
                   >
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>

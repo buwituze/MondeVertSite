@@ -7,7 +7,7 @@ export default function ServicesTitle() {
     <div className="relative py-9 overflow-hidden">
       {/* Background text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-        <span className="text-[12rem] font-bold text-gray-200 pt-10">
+        <span className="text-[12rem] font-special font-bold text-gray-200 pt-10">
           Services
         </span>
       </div>

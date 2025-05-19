@@ -54,10 +54,10 @@ export default function ProductsSection() {
     <section className="pt-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="font-subheading text-3xl md:text-4xl font-bold mb-4">
             Environmental Art Collection
           </h2>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 font-sans text-lg">
             Explore our curated collection of environmental artwork created by
             our artists and community collaborators. Each piece tells a story of
             our natural world and inspires sustainable action.
@@ -67,7 +67,7 @@ export default function ProductsSection() {
         <div className="text-center mb-12">
           <Button
             asChild
-            className="group bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2 rounded-md"
+            className="group bg-emerald-700 font-sans hover:bg-emerald-800 text-white px-6 py-2 rounded-md"
           >
             <Link href="/gallery">
               View Art Gallery
@@ -98,8 +98,10 @@ export default function ProductsSection() {
                 </button>
               </div>
               <div className="p-4 bg-white">
-                <h3 className="font-semibold text-lg">{product.name}</h3>
-                <p className="text-gray-800 font-medium mt-1">
+                <h3 className="font-semibold text-lg font-sans">
+                  {product.name}
+                </h3>
+                <p className="text-gray-800 font-sans font-medium mt-1">
                   {product.price}
                 </p>
               </div>

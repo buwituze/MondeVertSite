@@ -45,10 +45,10 @@ export default function ServiceCategories() {
     <section className="w-full bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2 className=" font-subheading text-3xl font-bold text-gray-900 md:text-4xl">
             Our Service Categories
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+          <p className="font-sans mx-auto mt-4 max-w-2xl text-gray-600">
             Discover how we blend art, culture, and technology to create
             impactful environmental education
           </p>
@@ -58,15 +58,17 @@ export default function ServiceCategories() {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="flex flex-col items-center rounded-xl bg-gray-50 p-6 text-center transition-all duration-300 hover:bg-[#E6F7EF] hover:shadow-md"
+              className="flex flex-col items-center rounded-xl bg-[#ffd700]/30 p-6 text-center transition-all duration-300 hover:bg-[#E6F7EF] hover:shadow-md"
             >
               <div className="mb-4 rounded-full bg-[#00bf63]/10 p-3 text-[#00bf63]">
                 {category.icon}
               </div>
-              <h3 className="mb-2 text-base font-semibold text-gray-900">
+              <h3 className=" font-sans mb-2 text-base font-semibold text-gray-900">
                 {category.name}
               </h3>
-              <p className="text-sm text-gray-600">{category.description}</p>
+              <p className="font-sans text-sm text-gray-600">
+                {category.description}
+              </p>
             </div>
           ))}
         </div>

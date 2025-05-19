@@ -45,6 +45,7 @@
   --font-sans: var(--font-inter);
   --font-heading: var(--font-unbounded);
   --font-subheading: var(--font-space-grotesk);
+  --font-artistic: var(--font-UnifrakturMaguntia);
   --font-special: var(--font-pacifico);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -134,5 +135,9 @@
   
   .font-special {
     font-family: var(--font-special);
+  }
+  
+  .font-artistic {
+    font-family: var(--font-artistic);
   }
 }

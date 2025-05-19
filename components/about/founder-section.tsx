@@ -154,18 +154,18 @@ export default function FounderSection() {
             transition={{ duration: 0.6 }}
             className="space-y-6 pl-6 md:pl-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-subheading font-bold text-white">
               Meet Our Visionalist
             </h2>
 
-            <p className="text-gray-200">
+            <p className="text-gray-200 font-sans">
               Vanson Cyuzuzo Rutagengwa is a conservationist and visual
               storytelling artist specializing in planetary health. His passion
               for the creative economy drives MondeVert's mission to unite art,
               culture, and technology for environmental stewardship.
             </p>
 
-            <p className="text-gray-200">
+            <p className="text-gray-200 font-sans">
               Through his leadership, MondeVert has become a vibrant hub for
               environmental education that engages Rwandans through creative
               expression and innovative sustainable solutions.
@@ -173,7 +173,7 @@ export default function FounderSection() {
 
             {/* Social media links */}
             <div className="pt-4">
-              <h3 className="text-sm font-medium text-gray-300 mb-3">
+              <h3 className="text-sm font-sans font-medium text-gray-300 mb-3">
                 Connect with Vanson
               </h3>
               <div className="flex space-x-4">

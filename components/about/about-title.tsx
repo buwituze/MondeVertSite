@@ -7,7 +7,9 @@ export default function AboutTitle() {
     <div className="relative py-9 overflow-hidden">
       {/* Background text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-        <span className="text-[12rem] font-bold text-gray-200">ESSENCE</span>
+        <span className="font-artistic text-[12rem] font-bold text-gray-200">
+          ESSENCE
+        </span>
       </div>
 
       {/* Actual title */}

@@ -36,10 +36,10 @@ export default function MissionSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl text-white font-bold mb-4">
+          <h2 className=" font-subheading text-3xl md:text-4xl text-white font-bold mb-4">
             Our Mission
           </h2>
-          <p className="text-gray-200">
+          <p className=" font-sans text-gray-200">
             To use art, culture, and technology as tools to foster environmental
             stewardship and inspire innovative sustainable solutions among young
             generations and the broader community in Rwanda.
@@ -56,10 +56,12 @@ export default function MissionSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white border-t-2 rounded-lg p-6 h-full flex flex-col hover:bg-white transition-colors duration-300"
             >
-              <h3 className="text-xl font-bold mb-3 text-[#ffd700] ">
+              <h3 className="text-xl font-bold mb-3 text-[#ffd700] font-sans">
                 {mission.title}
               </h3>
-              <p className="text-gray-600 text-sm">{mission.description}</p>
+              <p className="text-gray-600 text-sm font-sans">
+                {mission.description}
+              </p>
             </motion.div>
           ))}
         </div>
