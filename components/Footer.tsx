@@ -44,14 +44,14 @@ export default function Footer() {
                 target="_blank"
                 aria-label="Instagram"
               >
-                <Instagram className="w-6 h-6 text-[#e3c31e] hover:text-green-400 transition-colors" />
+                <Instagram className="w-6 h-6 text-[#e3c31e] hover:text-[#e3c31e] transition-colors" />
               </Link>
               <Link
                 href="https://linkedin.com"
                 target="_blank"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-6 h-6 text-[#e3c31e] hover:text-green-400 transition-colors" />
+                <Linkedin className="w-6 h-6 text-[#e3c31e] hover:text-[#e3c31e] transition-colors" />
               </Link>
               <Link
                 href="https://linkedin.com"
@@ -59,7 +59,7 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook
-                  className="w-6 h-6 text-[#e3c31e] hover:text-green-400 transition-colors"
+                  className="w-6 h-6 text-[#e3c31e] hover:text-[#e3c31e] transition-colors"
                   style={{ marginLeft: -7 }}
                 />
               </Link>

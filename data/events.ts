@@ -16,13 +16,13 @@ export const events: Event[] = [
     storyboardImageSrc: "/images/beyondtheframe-storyboard.jpg",
     aboutImageSrc: "/images/events.jpg",
     eventHighlights: [
-      "**Live Art in Action** \n\nWatch talented local artists create stunning environmental murals",
-      "**Spoken Word Magic** \n\nFeel the power of poetry as performers bring climate stories to life",
-      "**Digital Wonderland** \n\nExplore virtual reality landscapes that will change how you see our planet",
-      "**Connect & Create** \n\nJoin our Network with like-minded change-makers, artists, and innovators",
-      "**Be Inspired** \n\nLeave with fresh ideas and a deeper connection to environmental stewardship"
+      "**Live Art in Action** \\n\\nWatch talented local artists create stunning environmental murals",
+      "**Spoken Word Magic** \\n\\nFeel the power of poetry as performers bring climate stories to life",
+      "**Digital Wonderland** \\n\\nExplore virtual reality landscapes that will change how you see our planet",
+      "**Connect & Create** \\n\\nJoin our Network with like-minded change-makers, artists, and innovators",
+      "**Be Inspired** \\n\\nLeave with fresh ideas and a deeper connection to environmental stewardship"
     ],
-    aboutEvent: "**Why Should You Attend?** 🌍✨\n\nPicture this: Live mural artists transforming blank canvases into vibrant environmental stories right before your eyes. Poets dropping powerful verses about our planet that will give you goosebumps. And here's the kicker, virtual reality experiences that transport you into breathtaking natural worlds without leaving Kigali!\n\nThis isn't your boring environmental lecture, it's a celebration where creativity meets conservation, and YOU are part of the experience!\n\nEveryone is welcome! Whether you're a student, artist, entrepreneur, or just someone who cares about our planet's future, this event is designed for you. No environmental expertise required, just bring your curiosity and open mind!",
+    aboutEvent: "Picture this: Live mural artists transforming blank canvases into vibrant environmental stories right before your eyes. Poets dropping powerful verses about our planet that will give you goosebumps. And here's the kicker, virtual reality experiences that transport you into breathtaking natural worlds without leaving Kigali! \\n\\nThis isn't an environmental lecture - it's a celebration where creativity meets conservation, and YOU are part of the experience!",
     registrationInfo: "Limited spots available. RSVP to secure your place in this unforgettable experience! #TheActionTime",
     imageSrc: "/images/Beyond-the-frame-event.jpg",
     heroImageSrc: "/images/Beyond-the-frame-event.jpg",

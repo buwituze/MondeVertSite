@@ -1,10 +1,11 @@
-// events/[id]/page.tsx
+"use client";
+
+import { useEffect, useState } from "react";
 import { getEventById } from "@/data/events";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { CalendarIcon, MapPinIcon, ClockIcon } from "lucide-react";
-import { type FC } from "react";
 
 // Helper function to parse markdown-like syntax
 function parseMarkdown(text: string) {
@@ -13,7 +14,7 @@ function parseMarkdown(text: string) {
   // Handle bold text (**text**)
   const boldParsed = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
-  // Handle newlines (\n\n)
+  // Improved handling for newlines (\n\n)
   return boldParsed.split("\\n\\n").map((part, index) => (
     <p key={index} className="font-sans leading-relaxed text-gray-700 mb-2">
       <span dangerouslySetInnerHTML={{ __html: part }} />
@@ -21,23 +22,51 @@ function parseMarkdown(text: string) {
   ));
 }
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
+// Function to check if an event date is in the past
+function isEventInPast(dateString: string): boolean {
+  const today = new Date();
 
-const EventDetailPage = ({ params }: PageProps) => {
-  const event = getEventById(params.id);
+  // Parse the event date (format: "24 May 2025")
+  const [day, month, year] = dateString.split(" ");
+  const eventDate = new Date(`${month} ${day}, ${year}`);
+
+  return today > eventDate;
+}
+
+const EventDetailPage = () => {
+  const params = useParams();
+  const eventId =
+    typeof params.id === "string"
+      ? params.id
+      : Array.isArray(params.id)
+      ? params.id[0]
+      : "";
+  const [event, setEvent] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (eventId) {
+      const eventData = getEventById(eventId);
+      setEvent(eventData);
+      setLoading(false);
+    }
+  }, [eventId]);
+
+  if (loading) {
+    return <div className="py-16 text-center">Loading event...</div>;
+  }
 
   if (!event) {
-    notFound();
+    return notFound();
   }
+
+  // Check if event is in past
+  const eventIsPast = isEventInPast(event.date);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px]">
+      <section className="relative h-[70vh] min-h-[400px]">
         <Image
           src={event.heroImageSrc || "/placeholder.svg"}
           alt={event.title}
@@ -46,7 +75,7 @@ const EventDetailPage = ({ params }: PageProps) => {
           priority
         />
         <div className="absolute inset-0 bg-black/40 flex items-center">
-          <div className="container w-200 mt-25 px-4">
+          <div className="container w-200 mt-35 ml-14 px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {event.title}
             </h1>
@@ -56,9 +85,8 @@ const EventDetailPage = ({ params }: PageProps) => {
           </div>
         </div>
       </section>
-
       {/* Introduction and Details Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 w-[92%] ml-13 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Storyboard Image & Introduction - Takes up 2/3 of the width */}
@@ -122,7 +150,7 @@ const EventDetailPage = ({ params }: PageProps) => {
                 </div>
               </div>
 
-              <button className="font-sans mt-8 w-full  bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium py-3 px-4 rounded-md transition-colors">
+              <button className="font-sans mt-8 w-full bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium py-3 px-4 rounded-md transition-colors">
                 RSVP Now
               </button>
 
@@ -134,14 +162,10 @@ const EventDetailPage = ({ params }: PageProps) => {
         </div>
       </section>
 
-      {/* About Section with Image */}
-      <section className="py-12 bg-gray-50">
+      {/* Why Should You Attend Section - New permanent section */}
+      <section className="py-12 bg-yellow-300/40">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            About the Event
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-[97%] ml-5">
             {/* About Image */}
             <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
               <Image
@@ -154,27 +178,36 @@ const EventDetailPage = ({ params }: PageProps) => {
 
             {/* About Content */}
             <div className="space-y-4 flex flex-col gap-3">
-              <div>{parseMarkdown(event.aboutEvent)}</div>
-              <Link
-                href={event.eventGallery}
-                className="font-sans bg-[#e3c31e] w-34 text-white py-2 px-4 rounded-md hover:bg-yellow-300 font-medium"
-              >
-                Event Gallery
-              </Link>
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-5">
+                  Why Should You Attend? 🌍✨
+                </h2>
+                {parseMarkdown(event.aboutEvent)}
+              </div>
+
+              {/* Only show gallery button if event date is in the past */}
+              {eventIsPast && (
+                <Link
+                  href={event.eventGallery}
+                  className="font-sans bg-[#e3c31e] w-34 text-white py-2 px-4 rounded-md hover:bg-yellow-300 font-medium"
+                >
+                  Event Gallery
+                </Link>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       {/* Event Highlights */}
-      <section className="py-12 bg-white">
+      <section className="py-12 w-[92%] ml-13 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             What to Expect
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {event.eventHighlights.map((highlight, index) => {
+            {event.eventHighlights.map((highlight: string, index: number) => {
               const parts = highlight.split("\\n\\n");
               const title = parts[0];
               const description = parts.length > 1 ? parts[1] : "";
@@ -210,7 +243,7 @@ const EventDetailPage = ({ params }: PageProps) => {
         <div className="container mx-auto px-4">
           <Link
             href="/events"
-            className="font-sans text-green-600 hover:text-green-800 font-medium flex items-center"
+            className="font-sans ml-5 text-green-600 hover:text-green-800 font-medium flex items-center"
           >
             ← Back to all events
           </Link>
