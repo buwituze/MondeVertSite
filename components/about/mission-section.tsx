@@ -27,8 +27,20 @@ const missions = [
 
 export default function MissionSection() {
   return (
-    <section className="w-full text-gray-800 relative bg-[#00bf63]">
-      <div className="container mx-auto px-4 py-16 relative">
+    <section className="w-full text-gray-800 relative">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/geometric-forest-pattern-stockcake.jpg"
+          alt="Geometric Green Pattern"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/10 bg-opacity-25"></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Mission Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,10 +48,10 @@ export default function MissionSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className=" font-subheading text-3xl md:text-4xl text-white font-bold mb-4">
+          <h2 className="font-subheading text-3xl md:text-4xl text-white font-bold mb-4">
             Our Mission
           </h2>
-          <p className=" font-sans text-gray-200">
+          <p className="font-sans text-white">
             To use art, culture, and technology as tools to foster environmental
             stewardship and inspire innovative sustainable solutions among young
             generations and the broader community in Rwanda.
@@ -54,7 +66,7 @@ export default function MissionSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white border-t-2 rounded-lg p-6 h-full flex flex-col hover:bg-white transition-colors duration-300"
+              className="bg-white bg-opacity-90 backdrop-blur-sm border-t-2 rounded-lg p-6 h-full flex flex-col hover:shadow-lg hover:bg-white transition-all duration-300"
             >
               <h3 className="text-xl font-bold mb-3 text-[#ffd700] font-sans">
                 {mission.title}
@@ -65,6 +77,31 @@ export default function MissionSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Get Involved Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-12 max-w-2xl mx-auto"
+        >
+          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
+            <h3 className="text-2xl font-bold text-gray-700 mb-3">
+              Get Involved Today
+            </h3>
+            <p className="text-gray-500 mb-5">
+              Join our community of creative environmentalists and be part of
+              the change. Together, we can build a sustainable future through
+              art and innovation.
+            </p>
+            <a
+              href="#contactus"
+              className="inline-block px-6 py-3 bg-[#e3c31e] text-white font-medium rounded-lg hover:bg-[#ffd700] transition-colors duration-300 shadow-md"
+            >
+              Join Our Mission
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

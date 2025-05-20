@@ -1,5 +1,5 @@
 "use client";
-// Enhanced Hero.jsx component with animated background, parallax, and word animation
+// Enhanced Hero.jsx component with consistent responsive design across all screen sizes
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -11,6 +11,7 @@ export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [animationState, setAnimationState] = useState("visible"); // "entering", "visible", "exiting", "hidden"
+  const [windowWidth, setWindowWidth] = useState(0);
 
   const animatedWords = [
     "Differently",
@@ -20,9 +21,15 @@ export default function Hero() {
   ];
   const heroRef = useRef(null);
 
-  // Set isLoaded to true after component mounts
+  // Set isLoaded to true after component mounts and track window size
   useEffect(() => {
     setIsLoaded(true);
+    setWindowWidth(window.innerWidth);
+
+    // Handle window resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
     // Word animation sequence
     const runAnimationCycle = () => {
@@ -64,36 +71,44 @@ export default function Hero() {
       runAnimationCycle();
     }, 500);
 
-    // Parallax effect
+    // Parallax effect with limits to prevent content from being cut off
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const maxScroll = 300; // Limit the parallax effect
+      const newScrollY = Math.min(window.scrollY, maxScroll);
+      setScrollY(newScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Determine if we're on a mobile or small tablet device
+  const isMobile = windowWidth < 768; // md breakpoint
 
   return (
     <div
       ref={heroRef}
-      className="w-full grid grid-cols-1 min-h-[100vh] md:grid-cols-2 overflow-hidden relative"
+      className="lg:mt-10 w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden relative"
     >
       {/* Animated background pattern */}
       <div className="absolute inset-0 pointer-events-none organic-pattern-overlay"></div>
 
-      <div className="bg-white pl-26 relative z-10">
+      {/* Text Content Section */}
+      <div className="lg:mt-5 bg-white relative z-10 px-6 sm:px-8 md:px-12 lg:px-22">
         <div
-          className="flex flex-col justify-center h-screen space-y-12"
+          className="flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen py-12 md:py-8 space-y-4 sm:space-y-6 lg:space-y-8 max-w-xl mx-auto lg:mx-0"
           style={{
-            transform: `translateY(${scrollY * 0.1}px)`,
+            transform: isMobile ? "none" : `translateY(${scrollY * 0.05}px)`,
           }}
         >
           <div>
             <h1
-              className={`font-sans text-xl font-semibold pt-33 bg-clip-text text-transparent transition-all duration-800 ${
+              className={`font-sans text-lg md:text-xl font-semibold bg-clip-text text-transparent transition-all duration-800 ${
                 isLoaded
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-24 opacity-0"
@@ -110,7 +125,7 @@ export default function Hero() {
             </h1>
 
             <h1
-              className={`font-heading text-5xl md:text-5xl pt-3 leading-17 pb-3 transition-all duration-800 ${
+              className={`font-heading text-3xl md:text-4xl lg:text-5xl pt-3 leading-tight lg:leading-tight pb-3 transition-all duration-800 ${
                 isLoaded
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-24 opacity-0"
@@ -120,7 +135,11 @@ export default function Hero() {
               }}
             >
               Experience Sustainability{" "}
-              <span className="word-animation-container">
+              <span
+                className={`word-animation-container ${
+                  isMobile ? "block" : ""
+                }`}
+              >
                 <span
                   className={`word-animation word-animation-${animationState}`}
                 >
@@ -130,7 +149,7 @@ export default function Hero() {
             </h1>
 
             <p
-              className={`font-sans mb-0 text-lg transition-all duration-700 ${
+              className={`font-sans mb-0 text-base md:text-lg transition-all duration-700 ${
                 isLoaded
                   ? "translate-y-0 opacity-100"
                   : "translate-y-12 opacity-0"
@@ -186,42 +205,48 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Image Grid Section - Using the same grid layout for all screen sizes */}
       <div
-        className={`bg-white flex justify-center mr-20 align-middle gap-3 pt-25 transition-all duration-800 relative z-10 ${
-          isLoaded ? "translate-x-0 opacity-100" : "translate-x-24 opacity-0"
+        className={`bg-white flex items-center px-6 sm:px-8 md:px-12 py-6 sm:py-8 md:py-12 transition-all duration-800 relative z-10 ${
+          isLoaded ? "opacity-100" : "opacity-0"
         }`}
         style={{
+          transform: isMobile ? "none" : `translateY(${scrollY * 0.1}px)`,
           transitionTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1)",
-          transform: `translateY(${scrollY * 0.2}px)`,
         }}
       >
-        <div className="bg-gray-200 rounded-lg w-[250px] self-center h-[340px] hover-float">
-          <Image
-            src="/images/umusambi-flying.jpg"
-            alt="Digital Nature"
-            width={250}
-            height={340}
-            className="rounded-lg h-85 transition-all hover:scale-105 duration-500"
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          <div className="bg-gray-200 rounded-lg w-[220px] h-[280px] hover-float-delay-1">
+        {/* Common Grid Layout for All Screen Sizes */}
+        <div className="lg:mt-14 grid grid-cols-1 gap-4 w-full max-w-lg mx-auto">
+          {/* Top horizontal image */}
+          <div className=" bg-gray-200 rounded-lg w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[220px] hover-float">
             <Image
-              src="/images/art-piece.jpg"
+              src="/images/umusambi-flying.jpg"
               alt="Digital Nature"
-              width={220}
-              height={340}
-              className="rounded-lg h-70 transition-all hover:scale-105 duration-500"
+              width={600}
+              height={400}
+              className="rounded-lg w-full h-full object-cover transition-all hover:scale-105 duration-500"
             />
           </div>
-          <div className="bg-gray-200 rounded-lg w-[220px] h-[220px] hover-float-delay-2">
-            <Image
-              src="/images/arvr.jpg"
-              alt="Digital Nature"
-              width={220}
-              height={340}
-              className="rounded-lg h-55 transition-all hover:scale-105 duration-500"
-            />
+          {/* Bottom two images in a grid */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gray-200 rounded-lg w-full h-[160px] sm:h-[180px] md:h-[200px] lg:h-[240px] hover-float-delay-1">
+              <Image
+                src="/images/art-piece.jpg"
+                alt="Digital Nature"
+                width={300}
+                height={240}
+                className="rounded-lg w-full h-full object-cover transition-all hover:scale-105 duration-500"
+              />
+            </div>
+            <div className="bg-gray-200 rounded-lg w-full h-[160px] sm:h-[180px] md:h-[200px] lg:h-[240px] hover-float-delay-2">
+              <Image
+                src="/images/arvr.jpg"
+                alt="Digital Nature"
+                width={300}
+                height={240}
+                className="rounded-lg w-full h-full object-cover transition-all hover:scale-105 duration-500"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -356,10 +381,22 @@ export default function Hero() {
         .word-animation-container {
           display: inline-block;
           position: relative;
-          min-width: 500px;
+          min-width: 400px;
           min-height: 1.3em;
           color: #e3c31e;
           overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+          .word-animation-container {
+            min-width: 300px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .word-animation-container {
+            min-width: 400px;
+          }
         }
 
         .word-animation {
@@ -387,6 +424,13 @@ export default function Hero() {
         .word-animation-visible {
           opacity: 1;
           transform: translateX(0);
+        }
+
+        /* Limit parallax effect on small screens */
+        @media (max-width: 768px) {
+          .parallax-limited {
+            transform: none !important;
+          }
         }
 
         /* Scroll indicator styling */

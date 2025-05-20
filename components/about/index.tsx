@@ -7,7 +7,7 @@ import Services from "../servicesHomePage";
 import ProductsSection from "./products-section";
 export default function AboutSection() {
   return (
-    <section id="about">
+    <section id="about" className="mt-4">
       <TrustBanner />
       <AboutTitle />
       <PurposeSection />

@@ -69,7 +69,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="/about"
+                href="/#about"
                 className="text-sm font-medium transition-colors hover:text-[#00bf63]"
               >
                 About
@@ -128,7 +128,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/#contactus"
                 className="text-sm font-medium transition-colors hover:text-[#00bf63]"
               >
                 Contact

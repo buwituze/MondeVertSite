@@ -40,7 +40,7 @@ export default function PurposeSection() {
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
           {/* Left side - Big words with artistic background */}
-          <div className="space-y-6 mx-30" ref={ref}>
+          <div className="space-y-6 sm:mx-auto md:mx-5 lg:mx-30" ref={ref}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={controls}

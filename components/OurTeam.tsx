@@ -73,9 +73,8 @@ const teamMembers = [
     ],
     bio: "Benitha combines technical knowledge with creative marketing strategies to amplify MondeVert's digital presence and impact.",
     socialLinks: {
-      linkedin: "#",
-      twitter: "#",
-      website: "#",
+      linkedin: "https://www.linkedin.com/in/benitha-uwituze/",
+      website: "https://benithauwituze.netlify.app/",
     },
   },
 ];

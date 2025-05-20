@@ -7,20 +7,20 @@ import { ArrowRight } from "lucide-react";
 export default function FlagshipEventSection() {
   return (
     <section className="w-full relative overflow-hidden py-16">
-      <div className="flex mx-auto m-auto justify-center items-center mb-13">
+      {/* <div className="flex mx-auto m-auto justify-center items-center mb-13">
         <span className="h-1 w-12 bg-[#e3c31e] mr-4"></span>
         <h3
-          className=" font-heading  font-medium text-4xl uppercase tracking-wider"
+          className=" font-heading font-medium text-4xl uppercase tracking-wider"
           style={{
             backgroundImage:
-              "linear-gradient(to right, #00bf63, #00bf63, #ffd700)",
+              "linear-gradient(to right, #ffd700, #00bf63, #00bf63)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
         >
           Our Flagship Event
         </h3>
-      </div>
+      </div> */}
       {/* Dotted background pattern */}
       <div className="absolute text-green-600 inset-0 z-0">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ export default function FlagshipEventSection() {
               height="20"
               patternUnits="userSpaceOnUse"
             >
-              <circle cx="2" cy="2" r="1.5" fill="#B7410E" />
+              <circle cx="2" cy="2" r="1" fill="#B7410E" />
             </pattern>
             <radialGradient id="fadeGradient" cx="50%" cy="50%" r="70%">
               <stop offset="0%" stopColor="white" stopOpacity="1" />
@@ -77,7 +77,7 @@ export default function FlagshipEventSection() {
         <div className="flex flex-col justify-center px-6 md:px-12 py-10 md:py-0">
           <div className="max-w-lg space-y-6">
             <div className="space-y-2">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 font-sans">
+              <h2 className="text-4xl md:text-4xl font-bold text-gray-800 font-sans">
                 Beyond The Frame
               </h2>
             </div>
