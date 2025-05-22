@@ -63,9 +63,9 @@ export default function FlagshipEventSection() {
 
       <div className="flex flex-col md:grid md:grid-cols-2 gap-0 relative z-10">
         {/* Left side - Image (no padding/margin) */}
-        <div className="w-full h-[300px] md:h-[500px] rounded-tr-3xl rounded-br-3xl relative overflow-hidden">
+        <div className="w-7/8 md:w-full h-[300px] md:h-[450px] rounded-tr-3xl rounded-br-3xl relative overflow-hidden">
           <Image
-            src="/images/Beyond-the-frame-event.jpg" // Update with your actual image path
+            src="/images/Beyond-the-frame-event.jpg"
             alt="Beyond The Frame Event"
             fill
             className="object-cover object-center"

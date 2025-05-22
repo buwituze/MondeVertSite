@@ -1,5 +1,5 @@
 "use client";
-// Enhanced Hero.jsx component with consistent responsive design across all screen sizes
+// Enhanced Hero.jsx component with reduced spacing and fixed parallax
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [animationState, setAnimationState] = useState("visible"); // "entering", "visible", "exiting", "hidden"
+  const [animationState, setAnimationState] = useState("visible");
   const [windowWidth, setWindowWidth] = useState(0);
 
   const animatedWords = [
@@ -21,42 +21,26 @@ export default function Hero() {
   ];
   const heroRef = useRef(null);
 
-  // Set isLoaded to true after component mounts and track window size
   useEffect(() => {
     setIsLoaded(true);
     setWindowWidth(window.innerWidth);
 
-    // Handle window resize
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    // Word animation sequence
     const runAnimationCycle = () => {
-      // Word is visible for 1 second
       setTimeout(() => {
-        // Start exit animation
         setAnimationState("exiting");
-
-        // After exit animation completes (0.5s)
         setTimeout(() => {
           setAnimationState("hidden");
-
-          // Wait 1s before showing next word
           setTimeout(() => {
-            // Increment to next word
             setCurrentWordIndex((prevIndex) =>
               prevIndex === animatedWords.length - 1 ? 0 : prevIndex + 1
             );
-
-            // Start entry animation for new word
             setAnimationState("entering");
-
-            // After entry animation completes (0.5s), set to visible
             setTimeout(() => {
               setAnimationState("visible");
-
-              // Schedule next cycle
               runAnimationCycle();
             }, 500);
           }, 1000);
@@ -64,18 +48,22 @@ export default function Hero() {
       }, 1000);
     };
 
-    // Start the animation cycle
     setAnimationState("entering");
     setTimeout(() => {
       setAnimationState("visible");
       runAnimationCycle();
     }, 500);
 
-    // Parallax effect with limits to prevent content from being cut off
+    // Parallax effect - DISABLED on mobile/tablet screens
     const handleScroll = () => {
-      const maxScroll = 300; // Limit the parallax effect
-      const newScrollY = Math.min(window.scrollY, maxScroll);
-      setScrollY(newScrollY);
+      // Only apply parallax on desktop screens (lg and above)
+      if (window.innerWidth >= 1024) {
+        const maxScroll = 300;
+        const newScrollY = Math.min(window.scrollY, maxScroll);
+        setScrollY(newScrollY);
+      } else {
+        setScrollY(0); // Reset scroll offset on smaller screens
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -87,8 +75,9 @@ export default function Hero() {
     };
   }, []);
 
-  // Determine if we're on a mobile or small tablet device
-  const isMobile = windowWidth < 768; // md breakpoint
+  // Determine screen size
+  const isMobile = windowWidth < 768;
+  const isDesktop = windowWidth >= 1024;
 
   return (
     <div
@@ -99,11 +88,11 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none organic-pattern-overlay"></div>
 
       {/* Text Content Section */}
-      <div className="bg-white relative z-10 px-6 sm:px-8 md:px-12 lg:px-22">
+      <div className="bg-white relative z-10 px-6 sm:px-8 md:px-12 lg:pl-16 lg:pr-4 xl:pl-20 xl:pr-6">
         <div
-          className="flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen py-12 md:py-8 space-y-4 sm:space-y-6 lg:space-y-8 max-w-xl mx-auto lg:mx-0"
+          className="flex flex-col justify-center min-h-[60vh] sm:min-h-[75vh] md:min-h-[63vh] lg:min-h-screen py-12 md:py-8 space-y-4 sm:space-y-6 lg:space-y-8 max-w-xl mx-auto lg:mx-0 lg:ml-auto lg:mr-0"
           style={{
-            transform: isMobile ? "none" : `translateY(${scrollY * 0.05}px)`,
+            transform: isDesktop ? `translateY(${scrollY * 0.05}px)` : "none",
           }}
         >
           <div>
@@ -118,7 +107,7 @@ export default function Hero() {
                   "linear-gradient(to right, #ffd700, #00bf63, #ffd700)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                transitionTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1)", // Sharp easing
+                transitionTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1)",
               }}
             >
               Where Art Meets Sustainability
@@ -205,18 +194,18 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Image Grid Section - Using the same grid layout for all screen sizes */}
+      {/* Image Grid Section */}
       <div
-        className={`bg-white flex items-center px-6 sm:px-8 md:px-12 py-6 sm:py-8 md:py-12 transition-all duration-800 relative z-10 ${
+        className={`bg-white flex items-center px-6 sm:px-8 md:px-12 lg:pl-4 lg:pr-16 xl:pl-6 xl:pr-20 py-6 sm:py-8 md:py-0 transition-all duration-800 relative z-10 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
         style={{
-          transform: isMobile ? "none" : `translateY(${scrollY * 0.1}px)`,
+          transform: isDesktop ? `translateY(${scrollY * 0.1}px)` : "none",
           transitionTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1)",
         }}
       >
         {/* Common Grid Layout for All Screen Sizes */}
-        <div className="lg:mt-14 grid grid-cols-1 gap-4 w-full max-w-lg mx-auto">
+        <div className="lg:mt-14 grid grid-cols-1 gap-3 w-full max-w-lg mx-auto lg:ml-0 lg:mr-auto">
           {/* Top horizontal image */}
           <div className=" bg-gray-200 rounded-lg w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[220px] hover-float">
             <Image
@@ -228,7 +217,7 @@ export default function Hero() {
             />
           </div>
           {/* Bottom two images in a grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             <div className="bg-gray-200 rounded-lg w-full h-[160px] sm:h-[180px] md:h-[200px] lg:h-[240px] hover-float-delay-1">
               <Image
                 src="/images/art-piece.jpg"
@@ -251,7 +240,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Add global styles for animations */}
+      {/* Styles remain the same */}
       <style jsx global>{`
         @keyframes float {
           0% {
@@ -335,7 +324,6 @@ export default function Hero() {
           }
         }
 
-        /* Organic pattern background */
         .organic-pattern-overlay {
           background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,50 Q45,30 60,50 T90,50' stroke='%2300bf6310' fill='none' stroke-width='0.5'/%3E%3Cpath d='M10,50 Q25,20 40,50 T70,50' stroke='%23ffd70010' fill='none' stroke-width='0.5'/%3E%3Ccircle cx='70' cy='60' r='2' fill='%2300bf6305' /%3E%3Ccircle cx='30' cy='40' r='3' fill='%23ffd70005' /%3E%3C/svg%3E");
           opacity: 0.4;
@@ -377,7 +365,6 @@ export default function Hero() {
           animation: shine 4s infinite;
         }
 
-        /* Word animation styling */
         .word-animation-container {
           display: inline-block;
           position: relative;
@@ -426,14 +413,6 @@ export default function Hero() {
           transform: translateX(0);
         }
 
-        /* Limit parallax effect on small screens */
-        @media (max-width: 768px) {
-          .parallax-limited {
-            transform: none !important;
-          }
-        }
-
-        /* Scroll indicator styling */
         .scroll-indicator-container {
           width: 30px;
           height: 50px;

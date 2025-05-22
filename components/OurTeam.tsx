@@ -123,7 +123,7 @@ export default function TeamSection() {
             transition={{ duration: 0.5 }}
             className=" font-heading text-4xl font-bold mb-4 text-white inline-block relative"
           >
-            Our Team
+            Our Amazing Team
             <div
               className="absolute bottom-0 left-0 w-full h-1 mt-1"
               style={{
@@ -136,7 +136,7 @@ export default function TeamSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-gray-200 max-w-2xl mx-auto"
+            className="text-gray-100 max-w-2xl mx-auto"
           >
             Meet the passionate individuals behind MondeVert who combine their
             expertise in art, conservation, technology, and business to drive
@@ -257,7 +257,7 @@ export default function TeamSection() {
             </Link>
             {/* <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#00bf63] to-[#ffd700]" /> */}
           </div>
-          <p className="text-gray-300 text-sm mt-3 max-w-md mx-auto">
+          <p className="text-gray-200 text-sm mt-3 max-w-md mx-auto">
             Passionate about environmental conservation and creativity? We're
             always looking for talented individuals to join our mission.
           </p>
