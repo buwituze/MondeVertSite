@@ -61,9 +61,9 @@ export default function FlagshipEventSection() {
         </svg>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative z-10">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-0 relative z-10">
         {/* Left side - Image (no padding/margin) */}
-        <div className="w-160 h-[300px] md:h-[500px] rounded-tr-3xl rounded-br-3xl relative overflow-hidden">
+        <div className="w-full h-[300px] md:h-[500px] rounded-tr-3xl rounded-br-3xl relative overflow-hidden">
           <Image
             src="/images/Beyond-the-frame-event.jpg" // Update with your actual image path
             alt="Beyond The Frame Event"

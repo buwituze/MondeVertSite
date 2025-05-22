@@ -68,7 +68,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-[92%] mx-auto bg-white">
       <div className="container mt-16 mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-1">
           {/* Left column - Text content */}
@@ -215,7 +215,7 @@ export default function ServicesSection() {
 
           {/* Right column - Service cards in grid layout */}
           <div className="lg:col-span-6 mt-8 lg:mt-0">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {services.slice(0, 4).map((service) => (
                 <div
                   key={service.id}

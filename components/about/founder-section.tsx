@@ -145,7 +145,7 @@ export default function FounderSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container w-[95%] mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Founder description */}
           <motion.div
@@ -208,7 +208,7 @@ export default function FounderSection() {
             className="relative flex items-center justify-center"
           >
             {/* Custom radial gradient behind the image */}
-            <div className="absolute w-[350px] h-[470px] rounded-full bg-gradient-to-tr from-transparent via-emerald-600/30 to-emerald-500/20"></div>
+            <div className="absolute w-[350px] h-[470px] rounded-full bg-gradient-to-tr from-emerald-500/40 via-emerald-600/30 to-emerald-500/20"></div>
 
             <div className="relative w-[300px] h-[420px]">
               {/* Outer thick gold layer - true pill/oval shape */}

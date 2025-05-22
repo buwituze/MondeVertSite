@@ -93,13 +93,13 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="lg:mt-10 w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden relative"
+      className="sm:mt-10 lg:mt-10 w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden relative"
     >
       {/* Animated background pattern */}
       <div className="absolute inset-0 pointer-events-none organic-pattern-overlay"></div>
 
       {/* Text Content Section */}
-      <div className="lg:mt-5 bg-white relative z-10 px-6 sm:px-8 md:px-12 lg:px-22">
+      <div className="bg-white relative z-10 px-6 sm:px-8 md:px-12 lg:px-22">
         <div
           className="flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen py-12 md:py-8 space-y-4 sm:space-y-6 lg:space-y-8 max-w-xl mx-auto lg:mx-0"
           style={{
@@ -108,7 +108,7 @@ export default function Hero() {
         >
           <div>
             <h1
-              className={`font-sans text-lg md:text-xl font-semibold bg-clip-text text-transparent transition-all duration-800 ${
+              className={`font-sans text-lg sm:mt-7 md:text-xl font-semibold bg-clip-text text-transparent transition-all duration-800 ${
                 isLoaded
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-24 opacity-0"
@@ -125,7 +125,7 @@ export default function Hero() {
             </h1>
 
             <h1
-              className={`font-heading text-3xl md:text-4xl lg:text-5xl pt-3 leading-tight lg:leading-tight pb-3 transition-all duration-800 ${
+              className={`font-subheading text-4xl md:text-5xl lg:text-6xl pt-3 leading-tight lg:leading-tight pb-3 transition-all duration-800 ${
                 isLoaded
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-24 opacity-0"

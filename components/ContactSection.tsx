@@ -48,7 +48,7 @@ export default function ContactSection() {
   return (
     <section
       id="contactus"
-      className="w-full bg-gradient-to-br from-purple-50 to-white py-16 relative overflow-hidden"
+      className="w-[90%] mx-auto bg-white py-16 relative overflow-hidden"
     >
       {/* Abstract artistic background elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-red-100 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2 blur-xl"></div>
@@ -85,7 +85,7 @@ export default function ContactSection() {
         </svg>
       </div>
 
-      <div className="container ml-13 px-4 relative z-10">
+      <div className="container px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,11 +93,11 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <div className="inline-block relative mb-3">
-            <span className="w-10 h-1 bg-[#e3c31e] absolute -top-6 left-1/2 transform -translate-x-1/2"></span>
+            {/* <span className="w-10 h-1 bg-[#e3c31e] absolute -top-6 left-1/2 transform -translate-x-1/2"></span> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
               Get In Touch
             </h2>
-            <span className="w-20 h-1 bg-[#e3c31e] absolute -bottom-3 left-1/2 transform -translate-x-1/2"></span>
+            {/* <span className="w-20 h-1 bg-[#e3c31e] absolute -bottom-3 left-1/2 transform -translate-x-1/2"></span> */}
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto mt-6">
             Have questions about our events, workshops, or how to get involved

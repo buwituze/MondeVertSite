@@ -8,18 +8,21 @@ import Footer from "@/components/Footer";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 // For headers
 const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["latin"],
+  display: "swap",
 });
 
 // For subheaders
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 // For hero section special text
@@ -27,10 +30,11 @@ const pacifico = Pacifico({
   variable: "--font-pacifico",
   weight: ["400"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "MondeVert",
+  title: "MondeVert | Creative Sustainability Solutions",
   description: "Art, Technology, Culture for a sustainable future",
 };
 
@@ -45,8 +49,7 @@ export default function RootLayout({
         className={`${inter.variable} ${unbounded.variable} ${spaceGrotesk.variable} ${pacifico.variable} antialiased`}
       >
         <Navbar />
-        {children}
-
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

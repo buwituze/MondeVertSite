@@ -2,32 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const missions = [
-  {
-    title: "Environmental Education",
-    description:
-      "Making conservation engaging and accessible through creative expression and interactive learning experiences.",
-  },
-  {
-    title: "Youth Empowerment",
-    description:
-      "Inspiring the next generation to become environmental stewards and innovative problem-solvers in their communities.",
-  },
-  {
-    title: "Community Engagement",
-    description:
-      "Partnering with local communities to implement sustainable solutions and foster collective action for environmental care.",
-  },
-  {
-    title: "Creative Economy",
-    description:
-      "Nurturing artistic talent and leveraging creativity as a powerful tool for environmental advocacy and positive change.",
-  },
-];
-
-export default function MissionSection() {
+export default function MissionVisionSection() {
   return (
-    <section className="w-full text-gray-800 relative">
+    <section className="w-full text-gray-800 relative pt-20">
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -37,71 +14,115 @@ export default function MissionSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/10 bg-opacity-25"></div>
+        <div className="absolute inset-0 bg-black/20 bg-opacity-25"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        {/* Mission Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12"
-        >
-          <h2 className="font-subheading text-3xl md:text-4xl text-white font-bold mb-4">
-            Our Mission
-          </h2>
-          <p className="font-sans text-white">
-            To use art, culture, and technology as tools to foster environmental
-            stewardship and inspire innovative sustainable solutions among young
-            generations and the broader community in Rwanda.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto rounded-t-xl overflow-hidden bg-white/90 p-0 shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {/* Left Content Column */}
+            <div className="p-8 h-full flex flex-col justify-between">
+              {/* Mission Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="mt-10 mb-15"
+              >
+                <h2 className="font-subheading text-3xl text-gray-800 font-bold mb-1">
+                  Our Mission
+                </h2>
+                <div className="flex flex-row mx-16 gap-2 items-center mb-3">
+                  <span className=" text-purple-600">•</span>
+                  <span className="text-purple-600">•</span>
+                  <span className=" text-purple-600">•</span>
+                </div>
+                <p className="font-sans text-gray-700">
+                  To spark environmental consciousness through art, culture, and
+                  technology. We create immersive experiences that make
+                  conservation engaging and inspire innovative sustainable
+                  solutions among Rwanda's youth and communities.
+                </p>
+              </motion.div>
 
-        {/* Mission Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {missions.map((mission, index) => (
+              {/* Vision Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mb-15"
+              >
+                <h2 className="font-subheading text-3xl text-gray-800 font-bold mb-1">
+                  Our Vision
+                </h2>
+                <div className="flex flex-row mx-15 gap-2 items-center mb-3">
+                  <span className=" text-red-400">•</span>
+                  <span className="text-red-400">•</span>
+                  <span className=" text-red-400">•</span>
+                </div>
+                <p className="font-sans text-gray-700">
+                  A future where Rwandans embrace sustainability as a way of
+                  life. Where creativity and environmental consciousness
+                  intersect, transforming how communities understand and respond
+                  to climate challenges through artistic expression and digital
+                  innovation.
+                </p>
+              </motion.div>
+              {/* Call to Action Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <a
+                  href="#contactus"
+                  className="inline-block px-6 py-3 bg-[#e3c31e] text-white font-medium hover:bg-[#ffd700] transition-colors duration-300 shadow-md"
+                >
+                  Join Our Mission
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right Media Column */}
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white bg-opacity-90 backdrop-blur-sm border-t-2 rounded-lg p-6 h-full flex flex-col hover:shadow-lg hover:bg-white transition-all duration-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-full w-full overflow-hidden"
             >
-              <h3 className="text-xl font-bold mb-3 text-[#ffd700] font-sans">
-                {mission.title}
-              </h3>
-              <p className="text-gray-600 text-sm font-sans">
-                {mission.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+              <div className="h-full">
+                {/* <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src="/videos/mission-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video> */}
+                <Image
+                  src="/images/sustainability team.jpg"
+                  alt=""
+                  fill
+                  className="w-full h-full object-cover"
+                />
 
-        {/* Get Involved Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12 max-w-2xl mx-auto"
-        >
-          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-30">
-            <h3 className="text-2xl font-bold text-gray-700 mb-3">
-              Get Involved Today
-            </h3>
-            <p className="text-gray-500 mb-5">
-              Join our community of creative environmentalists and be part of
-              the change. Together, we can build a sustainable future through
-              art and innovation.
-            </p>
-            <a
-              href="#contactus"
-              className="inline-block px-6 py-3 bg-[#e3c31e] text-white font-medium rounded-lg hover:bg-[#ffd700] transition-colors duration-300 shadow-md"
-            >
-              Join Our Mission
-            </a>
+                {/* Overlay with text */}
+                {/* <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <div className="text-center px-6">
+                    <h3 className="text-white text-2xl font-bold mb-2">
+                      Art. Culture. Technology.
+                    </h3>
+                    <p className="text-white text-lg">
+                      Creativity for Environmental Stewardship
+                    </p>
+                  </div>
+                </div> */}
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ChevronDown, Facebook, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
@@ -11,6 +10,9 @@ export default function Navbar() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const galleryDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,17 +28,30 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close the mobile menu when clicking outside
+  // Handle clicks outside the mobile menu and gallery dropdown
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      const handleClickOutside = () => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node | null;
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(target) &&
+        isMobileMenuOpen
+      ) {
         setIsMobileMenuOpen(false);
-      };
+      }
 
-      document.addEventListener("click", handleClickOutside);
-      return () => document.removeEventListener("click", handleClickOutside);
-    }
-  }, [isMobileMenuOpen]);
+      if (
+        galleryDropdownRef.current &&
+        !galleryDropdownRef.current.contains(target) &&
+        isGalleryOpen
+      ) {
+        setIsGalleryOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen, isGalleryOpen]);
 
   return (
     <>
@@ -83,11 +98,11 @@ export default function Navbar() {
               </Link>
 
               {/* Gallery Dropdown */}
-              <div className="relative">
+              <div className="relative" ref={galleryDropdownRef}>
                 <button
                   className="flex items-center text-sm font-medium transition-colors hover:text-[#00bf63]"
                   onClick={(e) => {
-                    e.stopPropagation();
+                    e.preventDefault();
                     setIsGalleryOpen(!isGalleryOpen);
                   }}
                 >
@@ -152,7 +167,7 @@ export default function Navbar() {
                 <Linkedin className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors" />
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://facebook.com"
                 target="_blank"
                 aria-label="Facebook"
               >
@@ -167,7 +182,7 @@ export default function Navbar() {
             <button
               className="md:hidden p-2 text-gray-600 hover:text-[#00bf63]"
               onClick={(e) => {
-                e.stopPropagation();
+                e.preventDefault();
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }}
               aria-label="Toggle mobile menu"
@@ -186,12 +201,13 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 z-40 bg-black bg-opacity-50"
-          onClick={(e) => e.stopPropagation()}
+          onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu Drawer */}
       <div
+        ref={mobileMenuRef}
         className={`fixed top-20 right-4 z-40 bg-white rounded-lg shadow-lg w-64 transform transition-transform duration-300 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
@@ -206,7 +222,7 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/about"
+            href="/#about"
             className="py-3 text-sm font-medium border-b border-gray-100 hover:text-[#00bf63]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -225,7 +241,7 @@ export default function Navbar() {
             <button
               className="flex items-center w-full text-sm font-medium justify-between hover:text-[#00bf63]"
               onClick={(e) => {
-                e.stopPropagation();
+                e.preventDefault();
                 setIsGalleryOpen(!isGalleryOpen);
               }}
             >
@@ -272,7 +288,7 @@ export default function Navbar() {
             Get Involved
           </Link>
           <Link
-            href="/contact"
+            href="/#contactus"
             className="py-3 text-sm font-medium hover:text-[#00bf63]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -298,7 +314,7 @@ export default function Navbar() {
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://facebook.com"
               target="_blank"
               aria-label="Facebook"
               className="text-[#00bf63] hover:text-[#85e41e]"
