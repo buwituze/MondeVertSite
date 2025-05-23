@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   MessageSquare,
@@ -11,6 +11,20 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
+
+// Type declaration for EmailJS
+declare global {
+  interface Window {
+    emailjs: {
+      init: (publicKey: string) => void;
+      send: (
+        serviceId: string,
+        templateId: string,
+        templateParams: any
+      ) => Promise<{ status: number }>;
+    };
+  }
+}
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -26,34 +40,162 @@ export default function ContactSection() {
     isError: false,
   });
 
-  const handleChange = (e: any) => {
+  const [emailJSReady, setEmailJSReady] = useState(false);
+
+  // Initialize EmailJS
+  useEffect(() => {
+    const initEmailJS = () => {
+      if (typeof window !== "undefined" && window.emailjs) {
+        const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+        if (publicKey) {
+          window.emailjs.init(publicKey);
+          setEmailJSReady(true);
+        } else {
+          console.error(
+            "EmailJS public key not found in environment variables"
+          );
+        }
+      }
+    };
+
+    // Check if EmailJS is already loaded
+    if (typeof window !== "undefined" && window.emailjs) {
+      initEmailJS();
+    } else {
+      // Load EmailJS script dynamically
+      const script = document.createElement("script");
+      script.src =
+        "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+      script.async = true;
+      script.onload = initEmailJS;
+      script.onerror = () => {
+        console.error("Failed to load EmailJS");
+        setFormStatus((prev) => ({ ...prev, isError: true }));
+      };
+      document.head.appendChild(script);
+
+      return () => {
+        // Cleanup: remove script if component unmounts
+        if (document.head.contains(script)) {
+          document.head.removeChild(script);
+        }
+      };
+    }
+  }, []);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const validateForm = () => {
+    const { name, email, subject, message } = formData;
+
+    if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
+      return { isValid: false, error: "All fields are required" };
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return { isValid: false, error: "Please enter a valid email address" };
+    }
+
+    if (name.trim().length < 2) {
+      return {
+        isValid: false,
+        error: "Name must be at least 2 characters long",
+      };
+    }
+
+    if (message.trim().length < 10) {
+      return {
+        isValid: false,
+        error: "Message must be at least 10 characters long",
+      };
+    }
+
+    return { isValid: true };
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validate form
+    const validation = validateForm();
+    if (!validation.isValid) {
+      alert(validation.error);
+      return;
+    }
+
+    if (!emailJSReady) {
+      console.error("EmailJS not initialized");
+      setFormStatus({ isSubmitting: false, isSubmitted: false, isError: true });
+      return;
+    }
+
     setFormStatus({ isSubmitting: true, isSubmitted: false, isError: false });
 
-    setTimeout(() => {
-      setFormStatus({ isSubmitting: false, isSubmitted: true, isError: false });
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 
+      if (!serviceId || !templateId) {
+        throw new Error("EmailJS configuration missing");
+      }
+
+      // Fixed template parameters to match your EmailJS template
+      const templateParams = {
+        name: formData.name.trim(), // Changed from 'from_name' to 'name'
+        from_email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+        time: new Date().toLocaleString(), // Added missing time parameter
+        to_name: "MondeVert Team",
+      };
+
+      const response = await window.emailjs.send(
+        serviceId,
+        templateId,
+        templateParams
+      );
+
+      if (response.status === 200) {
+        setFormStatus({
+          isSubmitting: false,
+          isSubmitted: true,
+          isError: false,
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus((prev) => ({ ...prev, isSubmitted: false }));
+        }, 5000);
+      } else {
+        throw new Error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setFormStatus({ isSubmitting: false, isSubmitted: false, isError: true });
+
+      // Auto-hide error message after 5 seconds
       setTimeout(() => {
-        setFormStatus((prev) => ({ ...prev, isSubmitted: false }));
+        setFormStatus((prev) => ({ ...prev, isError: false }));
       }, 5000);
-    }, 1500);
+    }
   };
 
   return (
     <section
       id="contactus"
-      className="w-[90%] mx-auto bg-white py-16 relative overflow-hidden"
+      className="w-full px-4 sm:px-6 lg:px-8 xl:px-0 xl:w-[90%] mx-auto bg-white py-12 sm:py-16 relative overflow-hidden"
     >
       {/* Abstract artistic background elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-red-100 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2 blur-xl"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-100 rounded-full opacity-30 translate-x-1/4 translate-y-1/4 blur-xl"></div>
-      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-yellow-100 rounded-full opacity-40 blur-lg"></div>
+      <div className="absolute top-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-red-100 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2 blur-xl"></div>
+      <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-80 sm:h-80 bg-purple-100 rounded-full opacity-30 translate-x-1/4 translate-y-1/4 blur-xl"></div>
+      <div className="absolute top-1/3 right-1/4 w-24 h-24 sm:w-48 sm:h-48 bg-yellow-100 rounded-full opacity-40 blur-lg"></div>
 
       {/* Gold accent lines */}
       <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-30"></div>
@@ -85,48 +227,48 @@ export default function ContactSection() {
         </svg>
       </div>
 
-      <div className="container px-4 relative z-10">
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <div className="inline-block relative mb-3">
-            {/* <span className="w-10 h-1 bg-[#e3c31e] absolute -top-6 left-1/2 transform -translate-x-1/2"></span> */}
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-2">
               Get In Touch
             </h2>
-            {/* <span className="w-20 h-1 bg-[#e3c31e] absolute -bottom-3 left-1/2 transform -translate-x-1/2"></span> */}
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-6">
+          <p className="text-gray-600 max-w-2xl mx-auto mt-6 text-sm sm:text-base px-4">
             Have questions about our events, workshops, or how to get involved
             with MondeVert? We'd love to hear from you. Reach out and let's
             create a sustainable future together.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Contact Info Cards */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-1 space-y-6"
+            className="lg:col-span-1 space-y-4 sm:space-y-6"
           >
             {/* Email Card */}
-            <div className="bg-white rounded-xl shadow-sm p-6 flex items-start space-x-4 hover:shadow-md transition-shadow border-l-4 border-[#e3c31e]">
-              <div className="bg-yellow-50 p-3 rounded-full">
-                <Mail className="h-6 w-6 text-[#e3c31e]" />
+            <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 flex items-start space-x-3 sm:space-x-4 hover:shadow-md transition-shadow border-l-4 border-[#e3c31e]">
+              <div className="bg-yellow-50 p-2 sm:p-3 rounded-full flex-shrink-0">
+                <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#e3c31e]" />
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-1">Email Us</h3>
-                <p className="text-gray-600 text-sm mb-2">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">
+                  Email Us
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-2">
                   For general inquiries and information
                 </p>
                 <a
                   href="mailto:mondevert.solutions@gmail.com"
-                  className="text-[#e3c31e] hover:text-yellow-600 font-medium"
+                  className="text-[#e3c31e] hover:text-yellow-600 font-medium text-xs sm:text-sm break-all"
                 >
                   mondevert.solutions@gmail.com
                 </a>
@@ -134,18 +276,20 @@ export default function ContactSection() {
             </div>
 
             {/* Phone Card */}
-            <div className="bg-white rounded-xl shadow-sm p-6 flex items-start space-x-4 hover:shadow-md transition-shadow border-l-4 border-red-400">
-              <div className="bg-red-50 p-3 rounded-full">
-                <Phone className="h-6 w-6 text-red-400" />
+            <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 flex items-start space-x-3 sm:space-x-4 hover:shadow-md transition-shadow border-l-4 border-red-400">
+              <div className="bg-red-50 p-2 sm:p-3 rounded-full flex-shrink-0">
+                <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-red-400" />
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-1">Call Us</h3>
-                <p className="text-gray-600 text-sm mb-2">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">
+                  Call Us
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-2">
                   Mon-Fri from 9am to 5pm
                 </p>
                 <a
                   href="tel:+250783446127"
-                  className="text-red-400 hover:text-red-500 font-medium"
+                  className="text-red-400 hover:text-red-500 font-medium text-xs sm:text-sm"
                 >
                   +250 783446127
                 </a>
@@ -153,31 +297,38 @@ export default function ContactSection() {
             </div>
 
             {/* Location Card */}
-            <div className="bg-white rounded-xl shadow-sm p-6 flex items-start space-x-4 hover:shadow-md transition-shadow border-l-4 border-purple-400">
-              <div className="bg-purple-50 p-3 rounded-full">
-                <MapPin className="h-6 w-6 text-purple-400" />
+            <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 flex items-start space-x-3 sm:space-x-4 hover:shadow-md transition-shadow border-l-4 border-purple-400">
+              <div className="bg-purple-50 p-2 sm:p-3 rounded-full flex-shrink-0">
+                <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-purple-400" />
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-1">Visit Us</h3>
-                <p className="text-gray-600 text-sm mb-2">Our headquarters</p>
-                <p className="text-gray-700">Kigali, Rwanda</p>
+              <div className="min-w-0 flex-1">
+                <h3 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">
+                  Visit Us
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-2">
+                  Our headquarters
+                </p>
+                <p className="text-gray-700 text-xs sm:text-sm">
+                  Kigali, Rwanda
+                </p>
               </div>
             </div>
 
             {/* Social Media */}
-            <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow border-t-4 border-[#e3c31e]">
-              <h3 className="font-semibold text-gray-800 mb-4">
+            <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 hover:shadow-md transition-shadow border-t-4 border-[#e3c31e]">
+              <h3 className="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">
                 Connect With Us
               </h3>
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 <a
                   href="#"
-                  className="bg-yellow-50 p-3 rounded-full hover:bg-yellow-100 transition-colors"
+                  className="bg-yellow-50 p-2 sm:p-3 rounded-full hover:bg-yellow-100 transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-5 sm:h-5"
                     fill="#e3c31e"
                     viewBox="0 0 24 24"
                   >
@@ -186,12 +337,13 @@ export default function ContactSection() {
                 </a>
                 <a
                   href="#"
-                  className="bg-purple-50 p-3 rounded-full hover:bg-purple-100 transition-colors"
+                  className="bg-purple-50 p-2 sm:p-3 rounded-full hover:bg-purple-100 transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-5 sm:h-5"
                     fill="#9333ea"
                     viewBox="0 0 24 24"
                   >
@@ -200,12 +352,13 @@ export default function ContactSection() {
                 </a>
                 <a
                   href="#"
-                  className="bg-red-50 p-3 rounded-full hover:bg-red-100 transition-colors"
+                  className="bg-red-50 p-2 sm:p-3 rounded-full hover:bg-red-100 transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-5 sm:h-5"
                     fill="#f87171"
                     viewBox="0 0 24 24"
                   >
@@ -214,12 +367,13 @@ export default function ContactSection() {
                 </a>
                 <a
                   href="#"
-                  className="bg-yellow-50 p-3 rounded-full hover:bg-yellow-100 transition-colors"
+                  className="bg-yellow-50 p-2 sm:p-3 rounded-full hover:bg-yellow-100 transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-5 sm:h-5"
                     fill="#e3c31e"
                     viewBox="0 0 24 24"
                   >
@@ -235,15 +389,15 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 w-195"
+            className="lg:col-span-2"
           >
-            <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 relative overflow-hidden">
               {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-200 opacity-10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-200 opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-200 opacity-10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-24 sm:h-24 bg-purple-200 opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
-              <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <MessageSquare className="mr-3 h-6 w-6 text-[#e3c31e]" />
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
+                {/* <MessageSquare className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 text-[#e3c31e]" /> */}
                 Send Us a Message
               </h3>
 
@@ -253,12 +407,12 @@ export default function ContactSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-start"
                 >
-                  <CheckCircle className="h-5 w-5 text-[#e3c31e] mr-3 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-[#e3c31e] mr-3 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-800">
+                    <h4 className="font-medium text-gray-800 text-sm sm:text-base">
                       Message sent successfully!
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-600 text-xs sm:text-sm">
                       Thank you for contacting us. We'll get back to you soon.
                     </p>
                   </div>
@@ -269,12 +423,12 @@ export default function ContactSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start"
                 >
-                  <AlertCircle className="h-5 w-5 text-red-500 mr-3 mt-0.5" />
+                  <AlertCircle className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-medium text-red-800">
+                    <h4 className="font-medium text-red-800 text-sm sm:text-base">
                       Something went wrong!
                     </h4>
-                    <p className="text-red-600 text-sm">
+                    <p className="text-red-600 text-xs sm:text-sm">
                       Please try again or contact us directly via email.
                     </p>
                   </div>
@@ -282,15 +436,15 @@ export default function ContactSection() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="space-y-6 relative z-10"
+                  className="space-y-4 sm:space-y-6 relative z-10"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label
                         htmlFor="name"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Your Name
+                        Your Name *
                       </label>
                       <input
                         type="text"
@@ -299,7 +453,7 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors text-sm sm:text-base"
                         placeholder="John Doe"
                       />
                     </div>
@@ -308,7 +462,7 @@ export default function ContactSection() {
                         htmlFor="email"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Your Email
+                        Your Email *
                       </label>
                       <input
                         type="email"
@@ -317,7 +471,7 @@ export default function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors text-sm sm:text-base"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -328,7 +482,7 @@ export default function ContactSection() {
                       htmlFor="subject"
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      Subject
+                      Subject *
                     </label>
                     <input
                       type="text"
@@ -337,7 +491,7 @@ export default function ContactSection() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors text-sm sm:text-base"
                       placeholder="How can we help you?"
                     />
                   </div>
@@ -347,7 +501,7 @@ export default function ContactSection() {
                       htmlFor="message"
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      Message
+                      Message *
                     </label>
                     <textarea
                       id="message"
@@ -355,25 +509,25 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors resize-none"
+                      rows={4}
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#e3c31e] focus:border-[#e3c31e] outline-none transition-colors resize-none text-sm sm:text-base"
                       placeholder="Tell us about your inquiry..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    disabled={formStatus.isSubmitting}
-                    className="w-full bg-gradient-to-r from-[#e3c31e] to-yellow-500 hover:from-yellow-500 hover:to-[#e3c31e] text-white py-3 px-6 rounded-lg transition-all duration-300 font-medium flex items-center justify-center shadow-md hover:shadow-lg"
+                    disabled={formStatus.isSubmitting || !emailJSReady}
+                    className="w-full bg-gradient-to-r from-[#e3c31e] to-yellow-500 hover:from-yellow-500 hover:to-[#e3c31e] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 font-medium flex items-center justify-center shadow-md hover:shadow-lg text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {formStatus.isSubmitting ? (
                       <>
-                        <Loader2 className="animate-spin h-5 w-5 mr-2" />
+                        <Loader2 className="animate-spin h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                         Sending...
                       </>
                     ) : (
                       <>
-                        <Send className="h-5 w-5 mr-2" />
+                        <Send className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                         Send Message
                       </>
                     )}
@@ -389,23 +543,22 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 bg-white rounded-xl shadow-lg overflow-hidden h-80 border-t-4 border-[#e3c31e]"
+          className="mt-12 sm:mt-16 bg-white rounded-xl shadow-lg overflow-hidden h-64 sm:h-80 border-t-4 border-[#e3c31e]"
         >
-          {/* Replace with actual Google Maps embed or use a static image map */}
           <div className="w-full h-full relative">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-purple-50 flex items-center justify-center">
               <div className="text-center px-4">
-                <div className="w-16 h-16 rounded-full bg-[#e3c31e] flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#e3c31e] flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <p className="text-gray-600 font-medium">
+                <p className="text-gray-600 font-medium text-sm sm:text-base">
                   Interactive map will appear here. Replace with your Google
                   Maps embed code.
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">
                   MondeVert Headquarters, Kigali, Rwanda
                 </p>
-                <button className="mt-4 px-6 py-2 bg-white text-[#e3c31e] border border-[#e3c31e] rounded-full text-sm font-medium hover:bg-[#e3c31e] hover:text-white transition-colors">
+                <button className="mt-3 sm:mt-4 px-4 sm:px-6 py-1.5 sm:py-2 bg-white text-[#e3c31e] border border-[#e3c31e] rounded-full text-xs sm:text-sm font-medium hover:bg-[#e3c31e] hover:text-white transition-colors">
                   Get Directions
                 </button>
               </div>

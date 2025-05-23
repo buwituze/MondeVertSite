@@ -46,7 +46,7 @@ export default function ServiceCategories() {
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className=" font-subheading text-3xl font-bold text-gray-900 md:text-4xl">
-            Our Service Categories
+            Our Service Category
           </h2>
           <p className="font-sans mx-auto mt-4 max-w-2xl text-gray-600">
             Discover how we blend art, culture, and technology to create

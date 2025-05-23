@@ -101,8 +101,7 @@ export default function Navbar() {
               <div className="relative" ref={galleryDropdownRef}>
                 <button
                   className="flex items-center text-sm font-medium transition-colors hover:text-[#00bf63]"
-                  onClick={(e) => {
-                    e.preventDefault();
+                  onClick={() => {
                     setIsGalleryOpen(!isGalleryOpen);
                   }}
                 >
@@ -110,7 +109,7 @@ export default function Navbar() {
                 </button>
 
                 {isGalleryOpen && (
-                  <div className="absolute top-full mt-2 bg-white rounded-md shadow-lg py-2 w-40">
+                  <div className="absolute top-full mt-2 bg-white rounded-md shadow-lg py-2 w-40 z-50">
                     <Link
                       href="/gallery/art"
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
@@ -142,9 +141,10 @@ export default function Navbar() {
                 Get Involved
               </Link>
 
+              {/* Contact - Hidden on md, shown on lg+ */}
               <Link
                 href="/#contactus"
-                className="text-sm font-medium transition-colors hover:text-[#00bf63]"
+                className="hidden lg:block text-sm font-medium transition-colors hover:text-[#00bf63]"
               >
                 Contact
               </Link>
@@ -181,8 +181,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2 text-gray-600 hover:text-[#00bf63]"
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={() => {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }}
               aria-label="Toggle mobile menu"
@@ -197,10 +196,10 @@ export default function Navbar() {
         </header>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Only show when menu is actually open */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black bg-opacity-50"
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
@@ -208,7 +207,7 @@ export default function Navbar() {
       {/* Mobile Menu Drawer */}
       <div
         ref={mobileMenuRef}
-        className={`fixed top-20 right-4 z-40 bg-white rounded-lg shadow-lg w-64 transform transition-transform duration-300 ${
+        className={`fixed top-20 right-4 z-50 bg-white rounded-lg shadow-lg w-64 transform transition-transform duration-300 md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -240,12 +239,16 @@ export default function Navbar() {
           <div className="relative py-3 border-b border-gray-100">
             <button
               className="flex items-center w-full text-sm font-medium justify-between hover:text-[#00bf63]"
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={() => {
                 setIsGalleryOpen(!isGalleryOpen);
               }}
             >
-              Gallery <ChevronDown className="h-4 w-4" />
+              Gallery{" "}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${
+                  isGalleryOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
             {isGalleryOpen && (
               <div className="pl-4 mt-2 space-y-2">

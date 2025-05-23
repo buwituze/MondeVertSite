@@ -18,9 +18,9 @@ export default function EnvironmentalArtExhibitions() {
               Environmental Art Exhibitions
             </h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Showcasing environmental-themed art through visual storytelling
-              and interactive displays that raise awareness and promote
-              environmental consciousness.
+              Experience Rwanda's environmental story through powerful visual
+              art that transforms climate awareness into emotional connection
+              and actionable change.
             </p>
           </div>
 
@@ -31,14 +31,14 @@ export default function EnvironmentalArtExhibitions() {
                   <Palette className="h-6 w-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Environmental Exhibitions
+                  Curated Environmental Collections
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  MondeVert creates, selects, and manages artwork that raises
-                  awareness and promotes environmental consciousness. Our
-                  curated collections are displayed in our physical gallery
-                  spaces, creating immersive experiences that educate and
-                  inspire visitors about environmental stewardship.
+                  Our carefully selected artwork showcases Rwanda's
+                  environmental journey through local artists' eyes. Each piece
+                  tells a story of conservation, challenge, and hope—creating
+                  immersive gallery experiences that inspire visitors to become
+                  environmental stewards.
                 </p>
                 <Link
                   href="#"
@@ -55,21 +55,19 @@ export default function EnvironmentalArtExhibitions() {
                   <Globe className="h-6 w-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Gallery and Exhibition Spaces
+                  Multi-Platform Art Access
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our environmental artwork is available through various
-                  channels including our online platforms, physical galleries,
-                  airport shops, and other strategic locations throughout
-                  Rwanda. This wide distribution ensures our message reaches
-                  diverse audiences across the country.
+                  From Kigali airport shops to our online platform and physical
+                  galleries—environmental art reaches every corner of Rwanda. We
+                  make conservation consciousness accessible through strategic
+                  placement and digital innovation.
                 </p>
                 <Link
                   href="#"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
-                  Explore online collection{" "}
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  Explore collection <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -78,7 +76,7 @@ export default function EnvironmentalArtExhibitions() {
           <div className="mt-12">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900">
-                Our Exhibition Approach
+                Our Exhibition Philosophy
               </h3>
             </div>
 
@@ -94,13 +92,14 @@ export default function EnvironmentalArtExhibitions() {
                     Visual Storytelling
                   </h3>
                   <p className="text-gray-600 mb-4 flex-1">
-                    We use photography and visual arts to tell compelling
-                    stories about environmental challenges and solutions,
-                    creating emotional connections between viewers and nature.
+                    Photography and visual arts capture Rwanda's environmental
+                    reality—from biodiversity loss to conservation victories.
+                    Each image sparks emotion and drives personal commitment to
+                    change.
                   </p>
                   <div className="mt-auto">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                      Photography & Visual Arts
+                      Impact Through Imagery
                     </span>
                   </div>
                 </div>
@@ -114,17 +113,17 @@ export default function EnvironmentalArtExhibitions() {
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Interactive Displays
+                    Interactive Experiences
                   </h3>
                   <p className="text-gray-600 mb-4 flex-1">
-                    Our exhibitions feature interactive elements that engage
-                    visitors in environmental topics through hands-on
-                    experiences, digital components, and participatory art
-                    installations.
+                    Beyond passive viewing—visitors engage with VR climate
+                    simulations, digital innovation pledges, and hands-on
+                    sustainability demonstrations that make environmental action
+                    tangible and urgent.
                   </p>
                   <div className="mt-auto">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                      Immersive Experiences
+                      Technology Meets Art
                     </span>
                   </div>
                 </div>
@@ -138,17 +137,17 @@ export default function EnvironmentalArtExhibitions() {
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Artist Collaborations
+                    Local Artist Platform
                   </h3>
                   <p className="text-gray-600 mb-4 flex-1">
-                    We partner with local and international artists who share
-                    our passion for environmental conservation, creating a
-                    platform for diverse voices and perspectives on
-                    environmental issues.
+                    Rwanda's creative talent drives our exhibitions. We showcase
+                    20+ photographers and visual artists who transform
+                    environmental challenges into compelling art that resonates
+                    with local communities.
                   </p>
                   <div className="mt-auto">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                      Creative Partnerships
+                      Creative Economy Growth
                     </span>
                   </div>
                 </div>
@@ -158,13 +157,13 @@ export default function EnvironmentalArtExhibitions() {
 
           <div className="mt-12 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">
-              Exhibition Impact
+              Proven Exhibition Impact
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-lg font-medium text-gray-900 mb-4">
-                  Educational Outcomes
+                  Measurable Awareness Growth
                 </h4>
                 <ul className="space-y-4">
                   <li className="flex">
@@ -172,8 +171,8 @@ export default function EnvironmentalArtExhibitions() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Increased awareness of local and global environmental
-                      challenges
+                      98% visitor excitement rate from our Beyond the Frame
+                      event testing
                     </p>
                   </li>
                   <li className="flex">
@@ -181,7 +180,8 @@ export default function EnvironmentalArtExhibitions() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Enhanced understanding of conservation efforts in Rwanda
+                      100+ individuals mobilized for environmental action
+                      through art
                     </p>
                   </li>
                   <li className="flex">
@@ -189,15 +189,15 @@ export default function EnvironmentalArtExhibitions() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Inspiration for personal environmental action and behavior
-                      change
+                      Enhanced climate science understanding through emotional
+                      connection
                     </p>
                   </li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-lg font-medium text-gray-900 mb-4">
-                  Cultural & Economic Benefits
+                  Community & Economic Value
                 </h4>
                 <ul className="space-y-4">
                   <li className="flex">
@@ -205,7 +205,15 @@ export default function EnvironmentalArtExhibitions() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Support for local artists and growth of Rwanda's creative
+                      20+ local artists earning through environmental art sales
+                    </p>
+                  </li>
+                  <li className="flex">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                      <Leaf className="h-3 w-3 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-600">
+                      Cross-community collaboration driving Rwanda's creative
                       economy
                     </p>
                   </li>
@@ -214,17 +222,7 @@ export default function EnvironmentalArtExhibitions() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Cultural exchange and collaboration between diverse
-                      communities
-                    </p>
-                  </li>
-                  <li className="flex">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
-                      <Leaf className="h-3 w-3 text-emerald-600" />
-                    </div>
-                    <p className="text-gray-600">
-                      Positioning Rwanda as a leader in environmental art and
-                      education
+                      Positioning Rwanda as East Africa's environmental art hub
                     </p>
                   </li>
                 </ul>
@@ -233,10 +231,10 @@ export default function EnvironmentalArtExhibitions() {
 
             <div className="mt-8 text-center">
               <Link
-                href="#upcoming-exhibitions"
+                href="/#contactus"
                 className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-8 transition-colors duration-300"
               >
-                View Upcoming Exhibitions
+                Experience Our Next Exhibition
               </Link>
             </div>
           </div>

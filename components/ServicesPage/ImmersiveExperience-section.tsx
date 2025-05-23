@@ -26,9 +26,9 @@ export default function ImmersiveExperiencesSection() {
               Immersive Experiences
             </h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Blending traditional art with digital innovations such as AR/VR to
-              create interactive and memorable environmental education
-              experiences.
+              Step into Rwanda's environmental story through cutting-edge VR
+              technology, interactive art installations, and cultural
+              experiences that make climate action personal.
             </p>
           </div>
 
@@ -39,20 +39,20 @@ export default function ImmersiveExperiencesSection() {
                   <Monitor className="h-6 w-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  AR/VR Environmental Simulations
+                  VR Environmental Journeys
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our augmented and virtual reality experiences transport
-                  participants to different ecosystems and environmental
-                  scenarios. These immersive simulations help users understand
-                  complex environmental issues by experiencing them firsthand,
-                  creating lasting impressions that inspire action.
+                  Experience Rwanda's ecosystems like never before. Our virtual
+                  reality simulations transport you to threatened forests,
+                  pristine lakes, and conservation sites, creating emotional
+                  connections that inspire real-world action and environmental
+                  stewardship.
                 </p>
                 <Link
-                  href="/services/immersive/ar-vr"
+                  href="#contact"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
-                  Experience AR/VR <ArrowRight className="ml-1 h-4 w-4" />
+                  Experience VR <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -63,18 +63,16 @@ export default function ImmersiveExperiencesSection() {
                   <Laptop className="h-6 w-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Digital Art Installations
+                  Interactive Art Installations
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our innovative digital art installations merge traditional
-                  artistic techniques with modern technology. Using art
-                  projectors and interactive elements, we create immersive
-                  environments that engage audiences regardless of their
-                  artistic background, making environmental education accessible
-                  and enjoyable.
+                  Discover sustainability through art projectors and digital
+                  creativity. Our installations blend traditional Rwandan
+                  culture with modern technology, making environmental education
+                  accessible to everyone regardless of artistic background.
                 </p>
                 <Link
-                  href="/services/immersive/digital-art"
+                  href="#contact"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
                   View installations <ArrowRight className="ml-1 h-4 w-4" />
@@ -85,13 +83,10 @@ export default function ImmersiveExperiencesSection() {
 
           <div className="mt-12 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-              {/* <div className="bg-emerald-100 p-8 flex items-center justify-center">
-                <Monitor className="h-16 w-16 text-emerald-600" />
-              </div> */}
               <div>
                 <Image
                   src="/images/arvr environment.jpeg"
-                  alt=""
+                  alt="VR Environmental Experience"
                   width={350}
                   height={300}
                   className="text-emerald-600"
@@ -99,7 +94,7 @@ export default function ImmersiveExperiencesSection() {
               </div>
               <div className="md:col-span-2 p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Benefits of Immersive Learning
+                  Why Immersive Learning Works
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -109,8 +104,8 @@ export default function ImmersiveExperiencesSection() {
                           <Leaf className="h-3 w-3 text-emerald-600" />
                         </div>
                         <p className="text-gray-600">
-                          90% higher retention rates compared to traditional
-                          learning
+                          Creates lasting emotional connections to environmental
+                          issues
                         </p>
                       </li>
                       <li className="flex">
@@ -118,7 +113,7 @@ export default function ImmersiveExperiencesSection() {
                           <Leaf className="h-3 w-3 text-emerald-600" />
                         </div>
                         <p className="text-gray-600">
-                          Increased emotional connection to environmental issues
+                          Makes complex climate concepts simple and relatable
                         </p>
                       </li>
                       <li className="flex">
@@ -126,7 +121,7 @@ export default function ImmersiveExperiencesSection() {
                           <Leaf className="h-3 w-3 text-emerald-600" />
                         </div>
                         <p className="text-gray-600">
-                          Accessible to diverse learning styles and abilities
+                          Engages youth who find traditional education boring
                         </p>
                       </li>
                     </ul>
@@ -138,8 +133,8 @@ export default function ImmersiveExperiencesSection() {
                           <Leaf className="h-3 w-3 text-emerald-600" />
                         </div>
                         <p className="text-gray-600">
-                          Creates memorable experiences that inspire long-term
-                          behavior change
+                          Transforms climate discourse into personal, actionable
+                          experiences
                         </p>
                       </li>
                       <li className="flex">
@@ -147,8 +142,8 @@ export default function ImmersiveExperiencesSection() {
                           <Leaf className="h-3 w-3 text-emerald-600" />
                         </div>
                         <p className="text-gray-600">
-                          Bridges the gap between technological innovation and
-                          environmental awareness
+                          Bridges traditional culture with modern environmental
+                          awareness
                         </p>
                       </li>
                     </ul>

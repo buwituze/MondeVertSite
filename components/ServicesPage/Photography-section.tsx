@@ -23,11 +23,12 @@ export default function NaturePhotographySection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              Interactive Nature Photography
+              Visual Storytelling & Photography
             </h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Guided explorations of Rwanda's natural landscapes combining
-              adventure, photography skills, and environmental education.
+              Capture Rwanda's natural beauty while learning to tell powerful
+              environmental stories that inspire conservation and community
+              action.
             </p>
           </div>
 
@@ -41,17 +42,16 @@ export default function NaturePhotographySection() {
                   Environmental Safaris
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Explore Rwanda's breathtaking natural landscapes while
-                  learning essential photography skills. Our guided safaris take
-                  you to stunning locations where you'll capture the beauty of
-                  local ecosystems while gaining a deeper understanding of
-                  conservation efforts and environmental challenges.
+                  Explore Rwanda's breathtaking landscapes through guided
+                  photography adventures. Document conservation efforts while
+                  discovering local ecosystems and learning how visual
+                  storytelling can drive environmental awareness and action.
                 </p>
                 <Link
-                  href="/services/photography/safaris"
+                  href="#contact"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
-                  Explore safaris <ArrowRight className="ml-1 h-4 w-4" />
+                  Join a safari <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -65,17 +65,16 @@ export default function NaturePhotographySection() {
                   Visual Storytelling Workshops
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Learn how to craft compelling visual narratives that highlight
-                  environmental issues and inspire action. Our photography
-                  workshops teach technical skills while focusing on how to use
-                  images to tell powerful stories about our environment and the
-                  need for conservation.
+                  Master the art of environmental storytelling through
+                  photography. Learn technical skills while developing
+                  compelling narratives that highlight conservation challenges
+                  and inspire community engagement in sustainability efforts.
                 </p>
                 <Link
-                  href="/services/photography/workshops"
+                  href="#contact"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
-                  Join a workshop <ArrowRight className="ml-1 h-4 w-4" />
+                  Book a workshop <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -91,11 +90,11 @@ export default function NaturePhotographySection() {
                   <Camera className="h-8 w-8 text-emerald-600" />
                 </div>
                 <h4 className="text-lg font-medium text-gray-900 mb-2">
-                  Expert Guidance
+                  Professional Guidance
                 </h4>
                 <p className="text-gray-600">
-                  Learn from experienced photographers who specialize in nature
-                  and environmental photography
+                  Learn from experienced visual storytellers who specialize in
+                  conservation photography and environmental advocacy.
                 </p>
               </div>
               <div className="text-center p-4">
@@ -103,11 +102,12 @@ export default function NaturePhotographySection() {
                   <Map className="h-8 w-8 text-emerald-600" />
                 </div>
                 <h4 className="text-lg font-medium text-gray-900 mb-2">
-                  Stunning Locations
+                  Diverse Ecosystems
                 </h4>
                 <p className="text-gray-600">
-                  Visit breathtaking natural settings throughout Rwanda, from
-                  forests to lakes and mountains
+                  Explore Rwanda's stunning natural heritage from pristine
+                  forests to vibrant lakes, each with unique conservation
+                  stories.
                 </p>
               </div>
               <div className="text-center p-4">
@@ -115,17 +115,18 @@ export default function NaturePhotographySection() {
                   <Leaf className="h-8 w-8 text-emerald-600" />
                 </div>
                 <h4 className="text-lg font-medium text-gray-900 mb-2">
-                  Conservation Focus
+                  Impact-Driven Content
                 </h4>
                 <p className="text-gray-600">
-                  Connect photography with environmental awareness and
-                  conservation efforts
+                  Create powerful visual content that contributes to
+                  conservation awareness and environmental education in your
+                  community.
                 </p>
               </div>
             </div>
             <div className="mt-8 text-center">
               <Link
-                href="/gallery"
+                href="#contact"
                 className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
               >
                 View our photography gallery{" "}

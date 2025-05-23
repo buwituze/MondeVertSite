@@ -12,16 +12,14 @@ export default function CommunityLedInitiatives() {
               Community-Led Initiatives
             </h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Empowering local communities through murals, street art, and
-              sustainable innovation while nurturing the creative economy.
+              Transforming Rwanda's public spaces into environmental advocacy
+              hubs through collaborative murals, digital innovation stations,
+              and youth-driven sustainability solutions.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 flex flex-col md:flex-row">
-              {/* <div className="md:w-2/5 bg-emerald-100 flex items-center justify-center p-8">
-                <Paintbrush className="h-16 w-16 text-emerald-600" />
-              </div> */}
               <div>
                 <Image
                   src="/images/event.jpg"
@@ -33,38 +31,35 @@ export default function CommunityLedInitiatives() {
               </div>
               <div className="md:w-3/5 p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Public Art Initiatives
+                  Environmental Murals & Street Art
                 </h3>
                 <p className="text-gray-600">
-                  We create murals and street art that beautify communities
-                  while conveying important environmental messages. These public
-                  installations serve as constant reminders of our collective
-                  responsibility toward environmental stewardship and
-                  sustainable living.
+                  We co-create vibrant murals with local communities that turn
+                  blank walls into powerful environmental messages. These
+                  permanent installations serve as daily reminders of our
+                  collective climate responsibility while beautifying Rwanda's
+                  urban spaces.
                 </p>
               </div>
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 flex flex-col md:flex-row">
-              {/* <div className="md:w-2/5 bg-emerald-100 flex items-center justify-center p-8">
-                <Users className="h-16 w-16 text-emerald-600" />
-              </div> */}
               <Image
                 src="/images/communityEngagement.png"
-                alt="Mural"
+                alt="Community Engagement"
                 width={250}
                 height={500}
               />
               <div className="md:w-3/5 p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Community Empowerment
+                  Youth Innovation Empowerment
                 </h3>
                 <p className="text-gray-600">
-                  We partner directly with local communities to implement
-                  creative sustainable solutions that address environmental
-                  challenges unique to their areas. Our approach focuses on
-                  empowering communities with the tools, knowledge, and
-                  resources to drive change.
+                  Through digital stations and innovation pledge platforms, we
+                  empower Rwanda's youth (ages 13-30) to develop and commit to
+                  sustainable solutions. Our programs nurture the next
+                  generation of environmental leaders and creative economy
+                  entrepreneurs.
                 </p>
               </div>
             </div>
@@ -72,13 +67,13 @@ export default function CommunityLedInitiatives() {
 
           <div className="mt-12 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">
-              Our Community Impact Approach
+              Our Community Impact Strategy
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-lg font-medium text-gray-900 mb-4">
-                  Community Engagement Methods
+                  Proven Engagement Methods
                 </h4>
                 <ul className="space-y-4">
                   <li className="flex">
@@ -86,8 +81,8 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Collaborative mural design and creation with local
-                      residents
+                      Collaborative mural design sessions with 100+ community
+                      members
                     </p>
                   </li>
                   <li className="flex">
@@ -95,8 +90,8 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Youth environmental leadership programs focused on
-                      creative solutions
+                      Digital innovation stations for civic environmental
+                      pledges
                     </p>
                   </li>
                   <li className="flex">
@@ -104,8 +99,7 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Interactive digital stations for civic engagement and
-                      innovation pledges
+                      Youth leadership programs targeting 1M Rwandans aged 13-30
                     </p>
                   </li>
                   <li className="flex">
@@ -113,14 +107,15 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Community-led environmental awareness campaigns and events
+                      Partnership with ALU and government agencies for scaled
+                      impact
                     </p>
                   </li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-lg font-medium text-gray-900 mb-4">
-                  Benefits to Communities
+                  Measurable Community Benefits
                 </h4>
                 <ul className="space-y-4">
                   <li className="flex">
@@ -128,7 +123,8 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Beautification of public spaces through environmental art
+                      Permanent environmental awareness through public art
+                      installations
                     </p>
                   </li>
                   <li className="flex">
@@ -136,7 +132,7 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Development of local creative economy and artistic talent
+                      63.2% of participants gain practical sustainability skills
                     </p>
                   </li>
                   <li className="flex">
@@ -144,7 +140,7 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Increased environmental awareness and community ownership
+                      Enhanced community ownership of environmental challenges
                     </p>
                   </li>
                   <li className="flex">
@@ -152,7 +148,7 @@ export default function CommunityLedInitiatives() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Sustainable solutions tailored to specific community needs
+                      Creative economy growth through paid artist participation
                     </p>
                   </li>
                 </ul>
@@ -164,7 +160,7 @@ export default function CommunityLedInitiatives() {
                 href="#contact"
                 className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-8 transition-colors duration-300"
               >
-                Start a Community Project
+                Launch Your Community Project
               </Link>
             </div>
           </div>

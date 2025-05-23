@@ -26,9 +26,9 @@ export default function StorytellingSection() {
               Storytelling & Performative Arts
             </h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Crafting compelling narratives through poetry, murals, and live
-              performances to communicate environmental messages and inspire
-              action.
+              Breaking through climate apathy with emotionally powerful poetry,
+              live mural creation, and immersive performances that transform
+              environmental education from boring to unforgettable.
             </p>
           </div>
 
@@ -41,17 +41,17 @@ export default function StorytellingSection() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Storytelling Workshops
+                  Environmental Storytelling Workshops
                 </h3>
                 <p className="text-gray-600 mb-4 flex-1">
-                  Learn to craft compelling narratives that resonate with
-                  different audiences, highlight environmental issues, and
-                  inspire action. Our workshops focus on effective communication
-                  techniques that bring environmental stories to life.
+                  Transform complex climate data into compelling narratives that
+                  move people to action. Our workshops teach digital
+                  storytelling, community engagement, and visual
+                  communication—skills 63.2% of Rwandans actively seek.
                 </p>
                 <div className="mt-auto">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                    Narrative Arts
+                    Impact Communication
                   </span>
                 </div>
               </div>
@@ -65,17 +65,17 @@ export default function StorytellingSection() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Live Mural Creation
+                  Live Mural Performance
                 </h3>
                 <p className="text-gray-600 mb-4 flex-1">
-                  Experience the powerful combination of visual art and
-                  environmental messaging through our live mural creation
-                  events. Watch as artists transform blank canvases into
-                  compelling environmental narratives before your eyes.
+                  Watch environmental stories come alive as artists create
+                  stunning murals in real-time during our Beyond the Frame
+                  events. These live performances combine visual art with
+                  environmental advocacy for maximum emotional impact.
                 </p>
                 <div className="mt-auto">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                    Visual Performance
+                    Live Art Creation
                   </span>
                 </div>
               </div>
@@ -89,17 +89,17 @@ export default function StorytellingSection() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Environmental Poetry
+                  Climate Poetry & Performance
                 </h3>
                 <p className="text-gray-600 mb-4 flex-1">
-                  Our poetry workshops and performances use the power of words
-                  to create emotional connections to environmental issues.
-                  Participants learn to express complex environmental concepts
-                  through accessible and moving poetry.
+                  Poetry slams and live performances that make environmental
+                  issues emotionally relatable. Our performing arts events
+                  transform abstract climate concepts into powerful personal
+                  stories that inspire immediate action.
                 </p>
                 <div className="mt-auto">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
-                    Performance
+                    Emotional Engagement
                   </span>
                 </div>
               </div>
@@ -108,14 +108,14 @@ export default function StorytellingSection() {
 
           <div className="mt-12 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              Why Storytelling Matters for Environmental Advocacy
+              Why Our Storytelling Approach Works
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <p className="text-gray-600 mb-4">
-                  Stories are powerful tools for creating emotional connections
-                  and driving behavior change. Through our storytelling and
-                  performative arts programs, we help participants:
+                  Traditional environmental education fails because it's
+                  abstract and boring. Our storytelling methodology bridges
+                  emotion and action, helping participants:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex">
@@ -123,50 +123,7 @@ export default function StorytellingSection() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Develop compelling narratives that inspire environmental
-                      action
-                    </p>
-                  </li>
-                  <li className="flex">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
-                      <Leaf className="h-3 w-3 text-emerald-600" />
-                    </div>
-                    <p className="text-gray-600">
-                      Learn techniques to make complex environmental issues
-                      relatable
-                    </p>
-                  </li>
-                  <li className="flex">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
-                      <Leaf className="h-3 w-3 text-emerald-600" />
-                    </div>
-                    <p className="text-gray-600">
-                      Create memorable performances that leave lasting
-                      impressions
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p className="text-gray-600 mb-4">
-                  Our approach combines traditional storytelling with modern
-                  techniques to:
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
-                      <Leaf className="h-3 w-3 text-emerald-600" />
-                    </div>
-                    <p className="text-gray-600">
-                      Engage audiences of all ages and backgrounds
-                    </p>
-                  </li>
-                  <li className="flex">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
-                      <Leaf className="h-3 w-3 text-emerald-600" />
-                    </div>
-                    <p className="text-gray-600">
-                      Transform abstract environmental concepts into tangible
+                      Transform climate statistics into personal, relatable
                       stories
                     </p>
                   </li>
@@ -175,7 +132,50 @@ export default function StorytellingSection() {
                       <Leaf className="h-3 w-3 text-emerald-600" />
                     </div>
                     <p className="text-gray-600">
-                      Inspire community action through shared narratives
+                      Create emotional connections that drive behavioral change
+                    </p>
+                  </li>
+                  <li className="flex">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                      <Leaf className="h-3 w-3 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-600">
+                      Develop practical communication skills for environmental
+                      advocacy
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-gray-600 mb-4">
+                  Our proven approach combines traditional Rwandan culture with
+                  cutting-edge digital technology to:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                      <Leaf className="h-3 w-3 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-600">
+                      Reach diverse audiences through culturally relevant
+                      narratives
+                    </p>
+                  </li>
+                  <li className="flex">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                      <Leaf className="h-3 w-3 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-600">
+                      Generate 98% participant excitement through immersive
+                      experiences
+                    </p>
+                  </li>
+                  <li className="flex">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                      <Leaf className="h-3 w-3 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-600">
+                      Build community networks of environmental storytellers
                     </p>
                   </li>
                 </ul>
@@ -183,10 +183,10 @@ export default function StorytellingSection() {
             </div>
             <div className="mt-6 text-center">
               <Link
-                href="/contact"
+                href="/events"
                 className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
               >
-                Book a storytelling workshop{" "}
+                View Our Events & workshop{" "}
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
