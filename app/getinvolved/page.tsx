@@ -22,7 +22,7 @@ export default function GetInvolved() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-2 items-center mt-5">
-              <div className="mt-10 space-y-4 ml-10">
+              <div className="mt-10 space-y-4 ml-1 md:ml-10">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Join Us in Creating a Sustainable Future
                 </h1>

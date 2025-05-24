@@ -18,7 +18,7 @@ import {
 // 4. Interactive Nature Photography Section
 export default function NaturePhotographySection() {
   return (
-    <section id="nature-photography" className="py-16">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -126,10 +126,10 @@ export default function NaturePhotographySection() {
             </div>
             <div className="mt-8 text-center">
               <Link
-                href="#contact"
+                href="/#contactus"
                 className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
               >
-                View our photography gallery{" "}
+                View our photography gallery
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   Mic,
@@ -11,11 +11,32 @@ import {
   Paintbrush,
   ImageIcon,
   Users,
+  Lightbulb,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function ServicesGrid() {
+  const router = useRouter();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  // Navigate to services page with section hash
+  const scrollToSection = (sectionId: string) => {
+    // Check if we're already on the services page
+    if (window.location.pathname === "/services") {
+      // If we're already on the services page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }
+    } else {
+      // If we're on a different page, navigate to services with hash
+      router.push(`/services#${sectionId}`);
+    }
+  };
 
   const services = [
     {
@@ -27,6 +48,7 @@ export default function ServicesGrid() {
       icon: <Mic className="h-6 w-6 text-[#00bf63]" />,
       image: "/images/live perfomancecopy.jpg",
       color: "from-emerald-500/20 to-emerald-500/5",
+      sectionId: "storytelling",
     },
     {
       id: 2,
@@ -37,6 +59,7 @@ export default function ServicesGrid() {
       icon: <Monitor className="h-6 w-6 text-[#00bf63]" />,
       image: "/images/arvr.jpg",
       color: "from-blue-500/20 to-blue-500/5",
+      sectionId: "immersive-experiences",
     },
     {
       id: 3,
@@ -45,8 +68,9 @@ export default function ServicesGrid() {
         "Customized workshops promoting environmental awareness and activities in the corporate sector.",
       category: "Training",
       icon: <Users className="h-6 w-6 text-[#00bf63]" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/images/corporatetraining1.jpg",
       color: "from-amber-500/20 to-amber-500/5",
+      sectionId: "corporate-trainings",
     },
     {
       id: 4,
@@ -57,9 +81,21 @@ export default function ServicesGrid() {
       icon: <Camera className="h-6 w-6 text-[#00bf63]" />,
       image: "/images/ecosafari.jpg",
       color: "from-indigo-500/20 to-indigo-500/5",
+      sectionId: "nature-photography",
     },
     {
       id: 5,
+      title: "Consulting & Branding Solutions",
+      description:
+        "Custom sustainability consulting, storytelling campaigns, and visual branding through murals and creative media for organizations.",
+      category: "Business Solutions",
+      icon: <Lightbulb className="h-6 w-6 text-[#00bf63]" />,
+      image: "/images/branding.png",
+      color: "from-[#fcba03]/20 to-[#fcba03]/5",
+      sectionId: "consulting-branding",
+    },
+    {
+      id: 6,
       title: "Community-Led Initiatives",
       description:
         "Empowering local communities through murals, street art, and sustainable innovation.",
@@ -67,9 +103,10 @@ export default function ServicesGrid() {
       icon: <Paintbrush className="h-6 w-6 text-[#00bf63]" />,
       image: "/images/peacockmural.jpg",
       color: "from-rose-500/20 to-rose-500/5",
+      sectionId: "community-initiatives",
     },
     {
-      id: 6,
+      id: 7,
       title: "Environmental Art Exhibitions",
       description:
         "Showcasing environmental-themed art through visual storytelling and interactive displays.",
@@ -77,6 +114,7 @@ export default function ServicesGrid() {
       icon: <ImageIcon className="h-6 w-6 text-[#00bf63]" />,
       image: "/images/exhibition.jpg",
       color: "from-purple-500/20 to-purple-500/5",
+      sectionId: "art-exhibitions",
     },
   ];
 
@@ -85,7 +123,7 @@ export default function ServicesGrid() {
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            Our Services
+            Our Solutions
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-600">
             Explore our diverse range of services designed to engage and educate
@@ -101,6 +139,14 @@ export default function ServicesGrid() {
               onMouseEnter={() => setHoveredCard(service.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
+              {/* Background overlay - moved to top and added pointer-events-none */}
+              <div
+                className={cn(
+                  "absolute inset-0 z-0 bg-gradient-to-t from-[#00bf63]/5 to-transparent opacity-0 transition-opacity duration-300 pointer-events-none",
+                  hoveredCard === service.id && "opacity-100"
+                )}
+              ></div>
+
               <div className="relative h-48 w-full overflow-hidden">
                 <div
                   className={cn(
@@ -122,7 +168,7 @@ export default function ServicesGrid() {
                 </div>
               </div>
 
-              <div className="p-6 pt-2">
+              <div className="relative z-30 p-6 pt-2">
                 <div className="mb-2 text-xs font-medium text-[#00bf63]">
                   {service.category}
                 </div>
@@ -131,20 +177,13 @@ export default function ServicesGrid() {
                 </h3>
                 <p className="mb-4 text-gray-600">{service.description}</p>
 
-                <Link
-                  href={`/services/${service.id}`}
-                  className="inline-flex items-center text-sm font-medium text-[#00bf63] transition-all duration-300 hover:text-[#00bf63]/80"
+                <button
+                  onClick={() => scrollToSection(service.sectionId)}
+                  className="inline-flex items-center text-sm font-medium text-[#00bf63] transition-all duration-300 hover:text-[#00bf63]/80 cursor-pointer"
                 >
                   Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </button>
               </div>
-
-              <div
-                className={cn(
-                  "absolute inset-0 z-0 bg-gradient-to-t from-[#00bf63]/5 to-transparent opacity-0 transition-opacity duration-300",
-                  hoveredCard === service.id && "opacity-100"
-                )}
-              ></div>
             </div>
           ))}
         </div>

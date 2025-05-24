@@ -75,22 +75,25 @@ const EventDetailPage = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/40 flex items-center">
-          <div className="container w-200 mt-35 ml-14 px-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {event.title}
-            </h1>
-            <p className="font-sans text-lg text-white opacity-90">
-              {event.description}
-            </p>
+          <div className="container mx-auto px-4 sm:px-6 md:px-4 md:ml-10 lg:ml-14">
+            <div className="max-w-4xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                {event.title}
+              </h1>
+              <p className="font-sans text-base sm:text-lg text-white opacity-90">
+                {event.description}
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
       {/* Introduction and Details Section */}
-      <section className="py-12 w-[92%] ml-13 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="py-8 sm:py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 md:px-4 md:ml-4 lg:ml-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Storyboard Image & Introduction - Takes up 2/3 of the width */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               <div className="space-y-2">
                 <div
                   dangerouslySetInnerHTML={{
@@ -108,7 +111,7 @@ const EventDetailPage = () => {
               </div>
 
               {/* Storyboard Image */}
-              <div className="relative h-120 w-full rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-64 sm:h-80 md:h-96 lg:h-120 w-full rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src={event.storyboardImageSrc || "/placeholder.svg"}
                   alt="Event Storyboard"
@@ -119,14 +122,14 @@ const EventDetailPage = () => {
             </div>
 
             {/* Event Details Card - Takes up 1/3 of the width */}
-            <div className="bg-gray-50 rounded-lg p-6 shadow-md lg:sticky lg:top-4 h-fit">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">
+            <div className="bg-gray-50 rounded-lg p-4 sm:p-6 shadow-md lg:sticky lg:top-4 h-fit">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 border-b pb-2">
                 Event Details
               </h2>
 
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <CalendarIcon className="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <CalendarIcon className="h-5 w-5 sm:h-6 sm:w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium text-gray-700">Date</p>
                     <p className="text-gray-600">{event.date}</p>
@@ -134,7 +137,7 @@ const EventDetailPage = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <ClockIcon className="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <ClockIcon className="h-5 w-5 sm:h-6 sm:w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium text-gray-700">Time</p>
                     <p className="text-gray-600">{event.time}</p>
@@ -142,7 +145,7 @@ const EventDetailPage = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <MapPinIcon className="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <MapPinIcon className="h-5 w-5 sm:h-6 sm:w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium text-gray-700">Location</p>
                     <p className="text-gray-600">{event.location}</p>
@@ -150,7 +153,7 @@ const EventDetailPage = () => {
                 </div>
               </div>
 
-              <button className="font-sans mt-8 w-full bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium py-3 px-4 rounded-md transition-colors">
+              <button className="font-sans mt-6 sm:mt-8 w-full bg-gradient-to-r from-[#00bf63] to-[#ffd700] text-white font-medium py-3 px-4 rounded-md transition-colors">
                 RSVP Now
               </button>
 
@@ -162,12 +165,12 @@ const EventDetailPage = () => {
         </div>
       </section>
 
-      {/* Why Should You Attend Section - New permanent section */}
-      <section className="py-12 bg-yellow-300/40">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-[97%] ml-5">
+      {/* Why Should You Attend Section */}
+      <section className="py-8 sm:py-12 bg-yellow-300/40">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
             {/* About Image */}
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+            <div className="relative h-64 sm:h-80 rounded-lg overflow-hidden shadow-lg">
               <Image
                 src={event.aboutImageSrc || "/placeholder.svg"}
                 alt="About the event"
@@ -179,7 +182,7 @@ const EventDetailPage = () => {
             {/* About Content */}
             <div className="space-y-4 flex flex-col gap-3">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-5">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-5">
                   Why Should You Attend? 🌍✨
                 </h2>
                 {parseMarkdown(event.aboutEvent)}
@@ -189,7 +192,7 @@ const EventDetailPage = () => {
               {eventIsPast && (
                 <Link
                   href={event.eventGallery}
-                  className="font-sans bg-[#e3c31e] w-34 text-white py-2 px-4 rounded-md hover:bg-yellow-300 font-medium"
+                  className="font-sans bg-[#e3c31e] w-fit text-white py-2 px-4 rounded-md hover:bg-yellow-300 font-medium"
                 >
                   Event Gallery
                 </Link>
@@ -200,13 +203,13 @@ const EventDetailPage = () => {
       </section>
 
       {/* Event Highlights */}
-      <section className="py-12 w-[92%] ml-13 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+      <section className="py-8 sm:py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 md:px-4 md:ml-4 lg:ml-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
             What to Expect
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {event.eventHighlights.map((highlight: string, index: number) => {
               const parts = highlight.split("\\n\\n");
               const title = parts[0];
@@ -215,7 +218,7 @@ const EventDetailPage = () => {
               return (
                 <div
                   key={index}
-                  className="bg-gray-50 p-6 rounded-lg shadow-sm"
+                  className="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm"
                 >
                   <span className="font-sans inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">
                     Highlight {index + 1}
@@ -230,7 +233,9 @@ const EventDetailPage = () => {
                       }}
                     />
                   </h3>
-                  <p className="font-sans text-gray-700">{description}</p>
+                  <p className="font-sans text-gray-700 text-sm sm:text-base">
+                    {description}
+                  </p>
                 </div>
               );
             })}
@@ -239,11 +244,11 @@ const EventDetailPage = () => {
       </section>
 
       {/* Back to Events */}
-      <section className="py-8 border-t border-gray-200">
-        <div className="container mx-auto px-4">
+      <section className="py-6 sm:py-8 border-t border-gray-200">
+        <div className="container mx-auto px-4 sm:px-6">
           <Link
             href="/events"
-            className="font-sans ml-5 text-green-600 hover:text-green-800 font-medium flex items-center"
+            className="font-sans text-green-600 hover:text-green-800 font-medium flex items-center"
           >
             ← Back to all events
           </Link>

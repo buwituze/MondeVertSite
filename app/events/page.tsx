@@ -1,7 +1,7 @@
 "use client";
 // events/page.tsx
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { events } from "@/data/events";
 import { EventCard } from "@/components/event-card";
 import Link from "next/link";
@@ -12,14 +12,41 @@ import { Button } from "@/components/ui/button";
 export default function EventsPage() {
   const [showUpcoming, setShowUpcoming] = useState(true);
 
-  // Get current date
-  const currentDate = new Date();
+  // Memoized date filtering logic
+  const { upcomingEvents, pastEvents } = useMemo(() => {
+    // Get current date at start of today (00:00:00)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-  // Filter events based on toggle state
-  const filteredEvents = events.filter((event) => {
-    const eventDate = new Date(event.date);
-    return showUpcoming ? eventDate >= currentDate : eventDate < currentDate;
-  });
+    const upcoming: typeof events = [];
+    const past: typeof events = [];
+
+    events.forEach((event) => {
+      const eventDate = new Date(event.date);
+      eventDate.setHours(0, 0, 0, 0); // Set to start of day for comparison
+
+      if (eventDate >= today) {
+        upcoming.push(event);
+      } else {
+        past.push(event);
+      }
+    });
+
+    // Sort upcoming events by date (earliest first)
+    upcoming.sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+
+    // Sort past events by date (most recent first)
+    past.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+    return { upcomingEvents: upcoming, pastEvents: past };
+  }, []); // Empty dependency array since events data is static
+
+  // Get filtered events based on toggle state
+  const filteredEvents = showUpcoming ? upcomingEvents : pastEvents;
 
   return (
     <div className="min-h-screen bg-white">
@@ -27,7 +54,7 @@ export default function EventsPage() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-2 items-center mt-5">
-            <div className="mt-10 space-y-4 ml-10">
+            <div className="mt-10 space-y-4 ml-1 md:ml-10">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Explore Our Events
               </h1>
@@ -62,6 +89,14 @@ export default function EventsPage() {
         <div
           className="relative flex items-center h-12 rounded-full bg-[#e3c31e] w-64 cursor-pointer"
           onClick={() => setShowUpcoming(!showUpcoming)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              setShowUpcoming(!showUpcoming);
+            }
+          }}
+          aria-label={`Switch to ${showUpcoming ? "past" : "upcoming"} events`}
         >
           <div
             className={`absolute w-1/2 h-10 mr-1 rounded-full transition-all duration-300 ease-in-out ${
@@ -71,18 +106,18 @@ export default function EventsPage() {
             }`}
           ></div>
           <span
-            className={`w-1/2 text-center z-10 ${
+            className={`w-1/2 text-center z-10 transition-colors duration-200 ${
               showUpcoming ? "text-white font-medium" : "text-white"
             }`}
           >
-            Upcoming
+            Upcoming ({upcomingEvents.length})
           </span>
           <span
-            className={`w-1/2 text-center z-10 ${
+            className={`w-1/2 text-center z-10 transition-colors duration-200 ${
               !showUpcoming ? "text-white font-medium" : "text-black"
             }`}
           >
-            Past
+            Past ({pastEvents.length})
           </span>
         </div>
       </div>
@@ -103,7 +138,7 @@ export default function EventsPage() {
                 <p className="text-lg text-gray-500">
                   {showUpcoming
                     ? "No upcoming events scheduled at the moment. Check back soon!"
-                    : "No past events to show for now. Check out our Upcoming events!"}
+                    : "No past events to show for now. Check out our upcoming events!"}
                 </p>
               </div>
             )}

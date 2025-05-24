@@ -90,7 +90,7 @@ export default function Hero() {
       {/* Text Content Section */}
       <div className="bg-white relative z-10 px-6 sm:px-8 md:px-12 lg:pl-16 lg:pr-4 xl:pl-20 xl:pr-6">
         <div
-          className="flex flex-col justify-center min-h-[60vh] sm:min-h-[90vh] md:min-h-[63vh] lg:min-h-screen py-12 md:py-8 space-y-4 sm:space-y-6 lg:space-y-8 max-w-xl mx-auto lg:mx-0 lg:ml-auto lg:mr-0"
+          className="flex flex-col justify-center min-h-[75vh] sm:min-h-[90vh] md:min-h-[63vh] lg:min-h-screen py-12 md:py-8 space-y-4 sm:space-y-6 lg:space-y-8 max-w-xl mx-auto lg:mx-0 lg:ml-auto lg:mr-0"
           style={{
             transform: isDesktop ? `translateY(${scrollY * 0.05}px)` : "none",
           }}

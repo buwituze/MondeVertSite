@@ -18,7 +18,7 @@ import {
 // 1. Storytelling & Performative Arts Section
 export default function StorytellingSection() {
   return (
-    <section id="storytelling" className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -186,7 +186,7 @@ export default function StorytellingSection() {
                 href="/events"
                 className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
               >
-                View Our Events & workshop{" "}
+                View Our Events & workshop
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>

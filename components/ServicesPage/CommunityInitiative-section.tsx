@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function CommunityLedInitiatives() {
   return (
-    <section id="community-initiatives" className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -157,10 +157,10 @@ export default function CommunityLedInitiatives() {
 
             <div className="mt-8 text-center">
               <Link
-                href="#contact"
+                href="/getinvolved/#volunteer"
                 className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-8 transition-colors duration-300"
               >
-                Launch Your Community Project
+                Join Our Community Projects
               </Link>
             </div>
           </div>

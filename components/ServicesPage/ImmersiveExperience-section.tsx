@@ -18,7 +18,7 @@ import {
 // 2. Immersive Experiences Section
 export default function ImmersiveExperiencesSection() {
   return (
-    <section id="immersive-experiences" className="py-16">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -72,7 +72,7 @@ export default function ImmersiveExperiencesSection() {
                   accessible to everyone regardless of artistic background.
                 </p>
                 <Link
-                  href="#contact"
+                  href="/#contactus"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
                 >
                   View installations <ArrowRight className="ml-1 h-4 w-4" />

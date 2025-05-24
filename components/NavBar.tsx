@@ -8,6 +8,7 @@ import { Instagram, Linkedin } from "lucide-react";
 
 export default function Navbar() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isMobileGalleryOpen, setIsMobileGalleryOpen] = useState(false); // Separate state for mobile
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,6 +39,7 @@ export default function Navbar() {
         isMobileMenuOpen
       ) {
         setIsMobileMenuOpen(false);
+        setIsMobileGalleryOpen(false); // Close mobile gallery when menu closes
       }
 
       if (
@@ -196,15 +198,7 @@ export default function Navbar() {
         </header>
       </div>
 
-      {/* Mobile Menu Overlay - Only show when menu is actually open */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
-
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Drawer - REMOVED THE BLACK OVERLAY */}
       <div
         ref={mobileMenuRef}
         className={`fixed top-20 right-4 z-50 bg-white rounded-lg shadow-lg w-64 transform transition-transform duration-300 md:hidden ${
@@ -235,28 +229,28 @@ export default function Navbar() {
             Services
           </Link>
 
-          {/* Mobile Gallery Dropdown */}
-          <div className="relative py-3 border-b border-gray-100">
+          {/* Mobile Gallery Dropdown - FIXED */}
+          <div className="border-b border-gray-100">
             <button
-              className="flex items-center w-full text-sm font-medium justify-between hover:text-[#00bf63]"
+              className="flex items-center w-full py-3 text-sm font-medium justify-between hover:text-[#00bf63]"
               onClick={() => {
-                setIsGalleryOpen(!isGalleryOpen);
+                setIsMobileGalleryOpen(!isMobileGalleryOpen);
               }}
             >
               Gallery{" "}
               <ChevronDown
                 className={`h-4 w-4 transition-transform ${
-                  isGalleryOpen ? "rotate-180" : ""
+                  isMobileGalleryOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
-            {isGalleryOpen && (
-              <div className="pl-4 mt-2 space-y-2">
+            {isMobileGalleryOpen && (
+              <div className="pl-4 pb-2 space-y-1">
                 <Link
                   href="/gallery/art"
                   className="block py-2 text-sm hover:text-[#00bf63]"
                   onClick={() => {
-                    setIsGalleryOpen(false);
+                    setIsMobileGalleryOpen(false);
                     setIsMobileMenuOpen(false);
                   }}
                 >
@@ -266,7 +260,7 @@ export default function Navbar() {
                   href="/gallery/media"
                   className="block py-2 text-sm hover:text-[#00bf63]"
                   onClick={() => {
-                    setIsGalleryOpen(false);
+                    setIsMobileGalleryOpen(false);
                     setIsMobileMenuOpen(false);
                   }}
                 >
