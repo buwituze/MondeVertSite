@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: [
+      'images.unsplash.com',
+      'live.staticflickr.com',
+      'flickr.com',
+      'www.flickr.com',
+      'galleries.page.link'
+    ],
   },
 };
 
