@@ -44,9 +44,6 @@ export default function Media() {
       try {
         setLoading(true);
         setError(null);
-
-        // Create a query to get all documents from mediaGallery collection
-        // Ordered by dateUploaded in descending order (newest first)
         const q = query(
           collection(db, "mediaGallery"),
           orderBy("dateUploaded", "desc")
@@ -57,8 +54,6 @@ export default function Media() {
         const fetchedImages: DisplayImage[] = [];
         querySnapshot.forEach((doc) => {
           const data = doc.data() as Omit<MediaImage, "id">;
-
-          // Convert Firestore timestamp to readable date string
           const dateUploaded = data.dateUploaded?.toDate();
           const formattedDate = dateUploaded
             ? dateUploaded.toLocaleDateString("en-US", {
@@ -91,16 +86,14 @@ export default function Media() {
 
   const filteredImages = images.filter(
     (image) =>
-      image.caption.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      image.event.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      image.date.toLowerCase().includes(searchTerm.toLowerCase())
+      (image.caption?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+      (image.event?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+      (image.date?.toLowerCase() || "").includes(searchTerm.toLowerCase())
   );
 
+  // Download image
   const downloadImage = (image: DisplayImage, e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent opening the panel when clicking download
-
-    // In a real application, you would implement proper download functionality
-    // This is a simplified version for demonstration
+    e.stopPropagation();
     const link = document.createElement("a");
     link.href = image.src;
     link.download = `mondevert-${image.event
