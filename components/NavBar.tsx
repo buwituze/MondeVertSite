@@ -155,7 +155,7 @@ export default function Navbar() {
             {/* Social Icons - Hide on smaller screens */}
             <div className="hidden md:flex items-center gap-3">
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/mondevrt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 aria-label="Instagram"
               >
