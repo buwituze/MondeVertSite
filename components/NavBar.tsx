@@ -162,7 +162,7 @@ export default function Navbar() {
                 <Instagram className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors" />
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/mondevrt/posts/?feedView=all"
                 target="_blank"
                 aria-label="LinkedIn"
               >
