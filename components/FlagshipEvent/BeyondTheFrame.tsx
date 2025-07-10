@@ -65,7 +65,7 @@ export default function FlagshipEventSection() {
         {/* Left side - Image (no padding/margin) */}
         <div className="w-7/8 md:w-full h-[300px] md:h-[450px] rounded-tr-3xl rounded-br-3xl relative overflow-hidden">
           <Image
-            src="/images/Beyond-the-frame-event.jpg"
+            src="/images/mondevert image.jpg"
             alt="Beyond The Frame Event"
             fill
             className="object-cover object-center"

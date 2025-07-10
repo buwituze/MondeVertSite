@@ -4,7 +4,7 @@ import TeamSection from "@/components/OurTeam";
 export default function TeamContactSection() {
   return (
     <div className="flex flex-col">
-      <TeamSection />
+      {/* <TeamSection /> */}
       <ContactSection />
     </div>
   );

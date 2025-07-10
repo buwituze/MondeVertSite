@@ -190,7 +190,7 @@ export default function ContactSection() {
   return (
     <section
       id="contactus"
-      className="w-full px-4 sm:px-6 lg:px-8 xl:px-0 xl:w-[90%] mx-auto bg-white py-12 sm:py-16 relative overflow-hidden"
+      className="w-full px-4 sm:px-6 lg:px-8 xl:px-0 xl:w-[100%] bg-white py-16 relative overflow-hidden"
     >
       {/* Abstract artistic background elements */}
       <div className="absolute top-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-red-100 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2 blur-xl"></div>
@@ -227,7 +227,7 @@ export default function ContactSection() {
         </svg>
       </div>
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 w-[90%] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -389,7 +389,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 "
           >
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 relative overflow-hidden">
               {/* Decorative elements */}
@@ -539,6 +539,8 @@ export default function ContactSection() {
         </div>
 
         {/* Google Maps or Image Map */}
+        {/* TODO: MONDEVERT WANTS GOOGLE MAPS OR IMAGE MAP OR NONE
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -564,7 +566,7 @@ export default function ContactSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
