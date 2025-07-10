@@ -5,10 +5,11 @@ import Link from "next/link";
 import { ChevronDown, Facebook, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 export default function Navbar() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [isMobileGalleryOpen, setIsMobileGalleryOpen] = useState(false); // Separate state for mobile
+  const [isMobileGalleryOpen, setIsMobileGalleryOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -176,6 +177,19 @@ export default function Navbar() {
                 <Facebook
                   className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors"
                   style={{ marginLeft: -7 }}
+                />
+              </Link>
+              <Link
+                href="https://www.flickr.com/photos/202949219@N08/albums/"
+                target="_blank"
+                aria-label="Flickr"
+                className="hover:text-[#85e41e] -ml-1"
+              >
+                <Icon
+                  icon="lineicons:flickr"
+                  width="17px"
+                  height="17px"
+                  color="#00bf63"
                 />
               </Link>
             </div>
