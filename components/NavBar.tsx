@@ -156,21 +156,21 @@ export default function Navbar() {
             {/* Social Icons - Hide on smaller screens */}
             <div className="hidden md:flex items-center gap-3">
               <Link
-                href="https://www.instagram.com/mondevrt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/p/DK19uo6ItD-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blank"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors" />
               </Link>
               <Link
-                href="https://www.linkedin.com/company/mondevrt/posts/?feedView=all"
+                href="https://www.linkedin.com/posts/mondevrt_itsactiontime-mondevrt-artisticexpressions-activity-7339308352100864001-tMUy?utm_source=share&utm_medium=member_desktop&rcm=ACoAACQO8hIBczt968k6XphMeUuVBtA54Dy2MzM"
                 target="_blank"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors" />
               </Link>
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/p/16cMKUFjd3/"
                 target="_blank"
                 aria-label="Facebook"
               >
