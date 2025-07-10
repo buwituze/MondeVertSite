@@ -14,7 +14,7 @@ export default function AboutSection() {
       <MissionSection />
       <FounderSection />
       <Services />
-      <ProductsSection />
+      {/* TODO: Chane purpose of this section <ProductsSection /> */}
     </section>
   );
 }
