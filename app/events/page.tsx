@@ -10,11 +10,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function EventsPage() {
-  const [showUpcoming, setShowUpcoming] = useState(true);
+  const [showUpcoming, setShowUpcoming] = useState(false);
 
-  // Memoized date filtering logic
   const { upcomingEvents, pastEvents } = useMemo(() => {
-    // Get current date at start of today (00:00:00)
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -23,7 +21,7 @@ export default function EventsPage() {
 
     events.forEach((event) => {
       const eventDate = new Date(event.date);
-      eventDate.setHours(0, 0, 0, 0); // Set to start of day for comparison
+      eventDate.setHours(0, 0, 0, 0);
 
       if (eventDate >= today) {
         upcoming.push(event);
@@ -32,20 +30,17 @@ export default function EventsPage() {
       }
     });
 
-    // Sort upcoming events by date (earliest first)
     upcoming.sort(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
     );
 
-    // Sort past events by date (most recent first)
     past.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
 
     return { upcomingEvents: upcoming, pastEvents: past };
-  }, []); // Empty dependency array since events data is static
+  }, []);
 
-  // Get filtered events based on toggle state
   const filteredEvents = showUpcoming ? upcomingEvents : pastEvents;
 
   return (
@@ -100,24 +95,24 @@ export default function EventsPage() {
         >
           <div
             className={`absolute w-1/2 h-10 mr-1 rounded-full transition-all duration-300 ease-in-out ${
-              showUpcoming
+              !showUpcoming
                 ? "ml-1 left-0 bg-[#00bf63]"
                 : "left-1/2 ml-[-3px] bg-[#00bf63]"
             }`}
           ></div>
           <span
             className={`w-1/2 text-center z-10 transition-colors duration-200 ${
-              showUpcoming ? "text-white font-medium" : "text-white"
+              !showUpcoming ? "text-white font-medium" : "text-white"
             }`}
           >
-            Upcoming ({upcomingEvents.length})
+            Happened
           </span>
           <span
             className={`w-1/2 text-center z-10 transition-colors duration-200 ${
-              !showUpcoming ? "text-white font-medium" : "text-black"
+              showUpcoming ? "text-white font-medium" : "text-black"
             }`}
           >
-            Past ({pastEvents.length})
+            Upcoming 1+
           </span>
         </div>
       </div>
@@ -126,7 +121,7 @@ export default function EventsPage() {
       <section className="py-10" id="events">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">
-            {showUpcoming ? "Upcoming Events" : "Past Events"}
+            {showUpcoming ? "Upcoming Events" : "Our Past Events"}~
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredEvents.length > 0 ? (
