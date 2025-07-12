@@ -30,7 +30,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle clicks outside the mobile menu and gallery dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node | null;
@@ -40,7 +39,7 @@ export default function Navbar() {
         isMobileMenuOpen
       ) {
         setIsMobileMenuOpen(false);
-        setIsMobileGalleryOpen(false); // Close mobile gallery when menu closes
+        setIsMobileGalleryOpen(false);
       }
 
       if (
@@ -114,7 +113,7 @@ export default function Navbar() {
                 {isGalleryOpen && (
                   <div className="absolute top-full mt-2 bg-white rounded-md shadow-lg py-2 w-40 z-50">
                     <Link
-                      href="/gallery/art"
+                      href="/gallery/artgallery"
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
                       onClick={() => setIsGalleryOpen(false)}
                     >
@@ -261,7 +260,7 @@ export default function Navbar() {
             {isMobileGalleryOpen && (
               <div className="pl-4 pb-2 space-y-1">
                 <Link
-                  href="/gallery/art"
+                  href="/gallery/artgallery"
                   className="block py-2 text-sm hover:text-[#00bf63]"
                   onClick={() => {
                     setIsMobileGalleryOpen(false);

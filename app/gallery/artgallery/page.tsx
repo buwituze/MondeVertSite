@@ -45,7 +45,7 @@ export default function Media() {
         setLoading(true);
         setError(null);
         const q = query(
-          collection(db, "mediaGallery"),
+          collection(db, "artGallery"),
           orderBy("dateUploaded", "desc")
         );
 
@@ -128,7 +128,7 @@ export default function Media() {
           <div className="container px-4 md:px-6 ">
             <div className="flex flex-col items-center justify-center xs:space-y-10 md:space-y-4 text-center">
               <h1 className=" text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl sm:mt-15">
-                Media Gallery
+                Art Gallery
               </h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl">
                 Explore our collection of images showcasing MondeVert's
@@ -177,17 +177,7 @@ export default function Media() {
               <>
                 {/* Search bar */}
                 <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-8">
-                  <h2 className="text-2xl font-bold">Featured Images</h2>
-                  <div className="relative w-full max-w-xs">
-                    <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      type="search"
-                      placeholder="Search by event or date..."
-                      className="pl-8"
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                  </div>
+                  <h2 className="text-2xl font-bold">Featured Art</h2>
                 </div>
 
                 {/* Main content with side panel view */}
