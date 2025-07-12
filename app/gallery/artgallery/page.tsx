@@ -131,9 +131,10 @@ export default function Media() {
                 Art Gallery
               </h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                Explore our collection of images showcasing MondeVert's
-                environmental art events, workshops, and community projects in
-                Rwanda.
+                Discover the creative works from MondeVert's environmental art
+                initiatives. From painted canvases and community murals to
+                artistic photography, this collection celebrates art and
+                environmental consciousness in Rwanda.
               </p>
             </div>
           </div>
