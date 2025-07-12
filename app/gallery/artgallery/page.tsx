@@ -135,13 +135,6 @@ export default function Media() {
                 environmental art events, workshops, and community projects in
                 Rwanda.
               </p>
-              <p className="text-sm text-muted-foreground">
-                Looking for specific event photos? Visit our{" "}
-                <Link href="/events" className="text-[#00bf63] hover:underline">
-                  Events page
-                </Link>{" "}
-                to browse complete galleries for each event.
-              </p>
             </div>
           </div>
         </section>
