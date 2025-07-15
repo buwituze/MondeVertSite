@@ -202,7 +202,7 @@ export default function GetInvolved() {
                 {/* Mobile Money Payment Methods - Outside tabs since they're fixed */}
                 <div className="space-y-6 mt-8">
                   <h3 className="text-xl font-bold text-center">
-                    Payment Methods
+                    Donation Methods
                   </h3>
                   <div className="flex flex-col md:flex-row gap-4">
                     {/* MTN Section */}
