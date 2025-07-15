@@ -32,7 +32,7 @@ const featuredPlaces: Place[] = [
 
 export default function PlacesSection() {
   return (
-    <section className="pt-16 bg-white">
+    <section className="pt-16 bg-white mx-auto w-[92.5%]">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="font-subheading text-3xl md:text-4xl font-bold mb-4">
