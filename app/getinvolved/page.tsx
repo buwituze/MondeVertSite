@@ -223,24 +223,13 @@ export default function GetInvolved() {
                         <div className="grid gap-3 md:grid-cols-1">
                           <div className="rounded-lg border p-4">
                             <h5 className="font-semibold text-sm mb-1">
-                              Local (Rwanda)
+                              Donate To
                             </h5>
                             <p className="text-sm text-muted-foreground">
                               MTN MoMo:*182*1*1*0788123456#
                             </p>
                             <p className="font-mono text-lg font-bold">
-                              0788 123 456
-                            </p>
-                          </div>
-                          <div className="rounded-lg border p-4">
-                            <h5 className="font-semibold text-sm mb-1">
-                              International
-                            </h5>
-                            <p className="text-sm text-muted-foreground">
-                              MTN MoKash:
-                            </p>
-                            <p className="font-mono text-lg font-bold">
-                              +250 788 123 456
+                              0783446127
                             </p>
                           </div>
                         </div>
@@ -264,24 +253,13 @@ export default function GetInvolved() {
                         <div className="grid gap-3 md:grid-cols-1">
                           <div className="rounded-lg border p-4">
                             <h5 className="font-semibold text-sm mb-1">
-                              Local (Rwanda)
+                              Donate To:
                             </h5>
                             <p className="text-sm text-muted-foreground">
-                              Airtel Money:
+                              Airtel Money:*182*1*2*0730123456#
                             </p>
                             <p className="font-mono text-lg font-bold">
-                              0730 123 456
-                            </p>
-                          </div>
-                          <div className="rounded-lg border p-4">
-                            <h5 className="font-semibold text-sm mb-1">
-                              International
-                            </h5>
-                            <p className="text-sm text-muted-foreground">
-                              Airtel Money:
-                            </p>
-                            <p className="font-mono text-lg font-bold">
-                              +250 730 123 456
+                              0723770066
                             </p>
                           </div>
                         </div>
