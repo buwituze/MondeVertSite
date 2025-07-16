@@ -24,9 +24,9 @@ export const events: Event[] = [
     ],
     aboutEvent: "Picture this: Live mural artists transforming blank canvases into vibrant environmental stories right before your eyes. Poets dropping powerful verses about our planet that will give you goosebumps. And here's the kicker, virtual reality experiences that transport you into breathtaking natural worlds without leaving Kigali! \\n\\nThis isn't an environmental lecture - it's a celebration where creativity meets conservation, and YOU are part of the experience!",
     registrationInfo: "Limited spots available. RSVP to secure your place in this unforgettable experience! #TheActionTime",
-    imageSrc: "/images/Beyond-the-frame-event.jpg",
-    heroImageSrc: "/images/Beyond-the-frame-event.jpg",
-    eventGallery: "https://ikambavisuals.pixieset.com/photoshoot/"
+    imageSrc: "/images/mondevert image.jpg",
+    heroImageSrc: "/images/mondevert sub-hero.jpg",
+    eventGallery: "https://www.flickr.com/photos/202949219@N08/albums/"
   },
 ];
 

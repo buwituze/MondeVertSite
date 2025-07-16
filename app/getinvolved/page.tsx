@@ -45,7 +45,7 @@ export default function GetInvolved() {
                 </div>
               </div>
               <Image
-                src="/images/Beyond-the-frame-event.jpg"
+                src="/images/mondevert sub-hero.jpg"
                 alt="Community members engaged in environmental art projects"
                 width={500}
                 height={600}
