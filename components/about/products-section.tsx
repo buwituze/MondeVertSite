@@ -16,7 +16,7 @@ const featuredPlaces: Place[] = [
   {
     id: "1",
     name: "Nyungwe Forest",
-    imageSrc: "/images/Nyugwe Forest.jpg",
+    imageSrc: "/images/nyugwe_forest.jpg",
   },
   {
     id: "2",
