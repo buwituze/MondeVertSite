@@ -14,7 +14,7 @@ export default function MissionVisionSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/20 bg-opacity-25"></div>
+        <div className="absolute inset-0 bg-black/30 bg-opacity-25"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -102,7 +102,7 @@ export default function MissionVisionSection() {
                   Your browser does not support the video tag.
                 </video> */}
                 <Image
-                  src="/images/sustainability team.jpg"
+                  src="/images/mondevert-beyond-the-frame.jpg"
                   alt=""
                   fill
                   className="w-full h-full object-cover"

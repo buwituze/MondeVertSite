@@ -9,10 +9,10 @@ import {
   Loader2,
   CheckCircle,
   AlertCircle,
-  Users,
   Handshake,
   Heart,
   Lightbulb,
+  MessageSquare,
 } from "lucide-react";
 
 // Type declaration for EmailJS
@@ -187,25 +187,25 @@ export default function ContactSection() {
     {
       title: "Our Solutions",
       icon: <Lightbulb className="h-12 w-12 stroke-1 text-[#00bf63]" />,
-      color: "bg-[#ffd700]/30 ",
+      color: "bg-[#ffd700]/35",
       hoverColor: "hover:bg-gradient-to-r from-[#e3c31e] to-yellow-200",
     },
     {
       title: "Partnerships",
       icon: <Handshake className="h-12 w-12 stroke-1 text-[#00bf63]" />,
-      color: "bg-[#ffd700]/30 ",
+      color: "bg-[#ffd700]/35 ",
       hoverColor: "hover:bg-gradient-to-r from-[#e3c31e] to-yellow-200",
     },
     {
       title: "Volunteer",
-      icon: <Users className="h-12 w-12 stroke-1 text-[#00bf63]" />,
-      color: "bg-[#ffd700]/30 ",
+      icon: <Heart className="h-12 w-12 stroke-1 text-[#00bf63]" />,
+      color: "bg-[#ffd700]/35",
       hoverColor: "hover:bg-gradient-to-r from-[#e3c31e] to-yellow-200",
     },
     {
-      title: "Support",
-      icon: <Heart className="h-12 w-12 stroke-1 text-[#00bf63]" />,
-      color: "bg-[#ffd700]/30 ",
+      title: "Enquiry",
+      icon: <Mail className="h-12 w-12 stroke-1 text-[#00bf63]" />,
+      color: "bg-[#ffd700]/35",
       hoverColor: "hover:bg-gradient-to-r from-[#e3c31e] to-yellow-200",
     },
   ];
