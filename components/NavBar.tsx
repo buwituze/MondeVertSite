@@ -155,21 +155,21 @@ export default function Navbar() {
             {/* Social Icons - Hide on smaller screens */}
             <div className="hidden md:flex items-center gap-3">
               <Link
-                href="https://www.instagram.com/p/DK19uo6ItD-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                href="https://www.instagram.com/mondevrt/profilecard/?igsh=MTlicHVpcWszZDA0YQ=="
                 target="_blank"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors" />
               </Link>
               <Link
-                href="https://www.linkedin.com/posts/mondevrt_itsactiontime-mondevrt-artisticexpressions-activity-7339308352100864001-tMUy?utm_source=share&utm_medium=member_desktop&rcm=ACoAACQO8hIBczt968k6XphMeUuVBtA54Dy2MzM"
+                href="https://www.linkedin.com/company/mondevrt/"
                 target="_blank"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4 text-[#00bf63] hover:text-[#85e41e] transition-colors" />
               </Link>
               <Link
-                href="https://www.facebook.com/share/p/16cMKUFjd3/"
+                href="https://www.facebook.com/share/1JStV7PZtw/"
                 target="_blank"
                 aria-label="Facebook"
               >
@@ -308,7 +308,7 @@ export default function Navbar() {
           {/* Mobile Social Icons */}
           <div className="flex items-center gap-4 mt-4">
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/mondevrt/profilecard/?igsh=MTlicHVpcWszZDA0YQ=="
               target="_blank"
               aria-label="Instagram"
               className="text-[#00bf63] hover:text-[#85e41e]"
@@ -316,7 +316,7 @@ export default function Navbar() {
               <Instagram className="w-5 h-5" />
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/mondevrt/"
               target="_blank"
               aria-label="LinkedIn"
               className="text-[#00bf63] hover:text-[#85e41e]"
@@ -324,12 +324,25 @@ export default function Navbar() {
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1JStV7PZtw/"
               target="_blank"
               aria-label="Facebook"
               className="text-[#00bf63] hover:text-[#85e41e]"
             >
               <Facebook className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://www.flickr.com/photos/202949219@N08/albums/"
+              target="_blank"
+              aria-label="Flickr"
+              className="text-[#00bf63] hover:text-[#85e41e]"
+            >
+              <Icon
+                icon="lineicons:flickr"
+                width="17px"
+                height="17px"
+                color="#00bf63"
+              />
             </Link>
           </div>
         </nav>
